@@ -1,0 +1,107 @@
+html {
+  font-family: 'Poppins', sans-serif;
+  background: url("/background.jpg");
+}
+
+h1 {
+  font-size: 24px;
+}
+
+h2 {
+  font-size: 22px;
+}
+
+h3 {
+  font-size: 20px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 15px;
+}
+
+h6 {
+  font-size: 14px;
+}
+
+p {
+  font-size: 14px;
+}
+
+/* Hint */
+.ham-hint {
+  font-size: 13px;
+}
+
+.ham-hint-bold {
+  font-size: 13px;
+  font-display: bold;
+}
+
+/* Colors */
+.ham-black {
+  color: #332941;
+}
+
+.ham-navy {
+  color: #3B3486;
+}
+
+.ham-purple {
+  color: #864AF9;
+}
+
+.ham-yellow {
+  color: #F8E559;
+}
+
+.ham-dark {
+  color: #3D3B40;
+}
+
+.ham-blue {
+  color: #525CEB;
+}
+
+.ham-gray {
+  color: #BFCFE7;
+}
+
+.ham-pink {
+  color: #F8EDFF;
+}
+
+.ham-bg-black {
+  background-color: #332941;
+}
+
+.ham-bg-navy {
+  background-color: #3B3486;
+}
+
+.ham-bg-purple {
+  background-color: #864AF9;
+}
+
+.ham-bg-yellow {
+  background-color: #F8E559;
+}
+
+.ham-bg-dark {
+  background-color: #3D3B40;
+}
+
+.ham-bg-blue {
+  background-color: #525CEB;
+}
+
+.ham-bg-gray {
+  background-color: #BFCFE7;
+}
+
+.ham-bg-pink {
+  background-color: #F8EDFF;
+}
