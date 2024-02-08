@@ -1,12 +1,33 @@
-# Nuxt 3 Minimal Starter
+<div align="center">
+  <img src="./public/favicon.ico" width="100px" alt="Hamtarot Favicon" />
+  <h1>HAMTAROT</h1>
+</div>
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+เว็บไซต์ดูดวงที่คุณสามารถดูได้ตลอดเวลาไม่ว่าที่ไหนก็ตาม ซึ่งถูกสร้างและพัฒนาขึ้นด้วยเฟรมเวิร์ค [Nuxt.js](https://nuxt.com/) และ [DaisyUI](https://daisyui.com/) สำหรับการตกแต่งเว็บไซต์
 
-## Setup
+## ความต้องการเบื้องต้น
 
-Make sure to install the dependencies:
+- [Git](https://git-scm.com/downloads)
+- [Node.js](https://nodejs.org)
+- [Visual Studio Code](https://code.visualstudio.com)
 
-```bash
+## ตั้งค่าโปรเจกต์
+
+1. เปิดบรรทัดคำสั่งแล้วรันคำสั่งดังนี้เพื่อโคลนโปรเจกต์:
+
+```cmd
+git clone https://github.com/66022523/HAMTAROT.git
+```
+
+2. ทำการเข้าไปในโฟลเดอร์ที่โคลนล่าสุดโดยรันคำสั่งดังนี้:
+
+```cmd
+cd HAMTAROT
+```
+
+3. ทำการติดตั้งส่วนประกอบที่จำเป็นในการพัฒนาโปรเจกต์:
+
+```cmd
 # npm
 npm install
 
@@ -20,11 +41,17 @@ yarn install
 bun install
 ```
 
-## Development Server
+4. เปิด Visual Studio เพื่อแก้ไขโปรเจกต์
 
-Start the development server on `http://localhost:3000`:
+```cmd
+code .
+```
 
-```bash
+## พัฒนาโปรเจกต์
+
+เริ่มเปิดเซิร์ฟเวอร์ที่ http://localhost:3000:
+
+```cmd
 # npm
 npm run dev
 
@@ -38,27 +65,31 @@ yarn dev
 bun run dev
 ```
 
-## Production
+## สร้างเว็บไซต์
 
-Build the application for production:
+สร้างเว็บไซต์สำหรับการใช้งานจริงด้วยคำสั่งดังนี้:
 
-```bash
+```cmd
 # npm
+
 npm run build
 
 # pnpm
+
 pnpm run build
 
 # yarn
+
 yarn build
 
 # bun
+
 bun run build
 ```
 
-Locally preview production build:
+หรือดูตัวอย่างเว็บไซต์ที่สร้างไว้ด้วยคำสั่งดังนี้:
 
-```bash
+```cmd
 # npm
 npm run preview
 
@@ -71,5 +102,3 @@ yarn preview
 # bun
 bun run preview
 ```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
