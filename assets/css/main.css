@@ -1,107 +1,50 @@
+* {
+  font-family: 'Kanit', sans-serif;
+}
+
 html {
-  font-family: 'Poppins', sans-serif;
-  background: url("/background.jpg");
+  min-height: 100%;
+  background: url(/background.jpg);
+  background-size: cover;
+  box-shadow: inset 0 0 0 2000px #33294190;
 }
 
 h1 {
   font-size: 24px;
+  font-weight: 900;
 }
 
 h2 {
   font-size: 22px;
+  font-weight: 800;
 }
 
 h3 {
   font-size: 20px;
+  font-weight: 700;
 }
 
 h4 {
   font-size: 16px;
+  font-weight: 600;
 }
 
 h5 {
   font-size: 15px;
+  font-weight: 500;
 }
 
 h6 {
   font-size: 14px;
+  font-weight: 400;
 }
 
 p {
   font-size: 14px;
+  font-weight: 300;
 }
 
-/* Hint */
-.ham-hint {
+span {
   font-size: 13px;
-}
-
-.ham-hint-bold {
-  font-size: 13px;
-  font-display: bold;
-}
-
-/* Colors */
-.ham-black {
-  color: #332941;
-}
-
-.ham-navy {
-  color: #3B3486;
-}
-
-.ham-purple {
-  color: #864AF9;
-}
-
-.ham-yellow {
-  color: #F8E559;
-}
-
-.ham-dark {
-  color: #3D3B40;
-}
-
-.ham-blue {
-  color: #525CEB;
-}
-
-.ham-gray {
-  color: #BFCFE7;
-}
-
-.ham-pink {
-  color: #F8EDFF;
-}
-
-.ham-bg-black {
-  background-color: #332941;
-}
-
-.ham-bg-navy {
-  background-color: #3B3486;
-}
-
-.ham-bg-purple {
-  background-color: #864AF9;
-}
-
-.ham-bg-yellow {
-  background-color: #F8E559;
-}
-
-.ham-bg-dark {
-  background-color: #3D3B40;
-}
-
-.ham-bg-blue {
-  background-color: #525CEB;
-}
-
-.ham-bg-gray {
-  background-color: #BFCFE7;
-}
-
-.ham-bg-pink {
-  background-color: #F8EDFF;
+  font-weight: 200;
 }
