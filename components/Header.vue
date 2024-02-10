@@ -19,7 +19,7 @@
       <div class="navbar-end">
         <!-- ? If the user has already logged in -->
         <!-- <div class="dropdown dropdown-end">
-          <button
+          <div
             tabindex="0"
             role="button"
             class="btn btn-ghost btn-circle avatar"
@@ -30,7 +30,7 @@
                 src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
               />
             </div>
-          </button>
+          </div>
           <ul
             tabindex="0"
             class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
@@ -44,7 +44,7 @@
 
         <!-- ? If the user has not logged in yet -->
         <div class="dropdown dropdown-end">
-          <button tabindex="0" role="button" class="btn btn-circle avatar">
+          <div tabindex="0" role="button" class="btn btn-circle avatar">
             <div class="w-10 rounded-full">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -61,7 +61,7 @@
                 />
               </svg>
             </div>
-          </button>
+          </div>
           <ul
             tabindex="0"
             class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
