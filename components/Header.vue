@@ -1,5 +1,5 @@
 <template>
-  <header class="fixed top-5 left-5 right-5">
+  <header class="container mx-auto fixed top-10 left-0 right-0 z-10">
     <nav
       class="navbar bg-[#3B348620] py-3 px-5 rounded-xl shadow-xl backdrop-blur"
     >
