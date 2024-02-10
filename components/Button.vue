@@ -1,5 +1,5 @@
 <template>
-  <button class="btn" type="button">
+  <button class="btn">
     {{ name }}
   </button>
 </template>
