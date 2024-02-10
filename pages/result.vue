@@ -17,6 +17,7 @@
     <div class="flex gap-2 justify-center mb-8">
       <Button
         class="btn-warning"
+        type="button"
         name="บันทึกภาพ"
         onclick="saveImageModal.showModal()"
       />
@@ -39,14 +40,15 @@
           </div>
           <div class="modal-action">
             <form method="dialog">
-              <Button class="btn btn-primary me-2" name="บันทึกภาพ" />
-              <Button class="btn btn-outline btn-primary" name="ปิด" />
+              <Button class="btn-primary me-2" name="บันทึกภาพ" />
+              <Button class="btn-outline btn-primary" name="ปิด" />
             </form>
           </div>
         </div>
       </dialog>
       <Button
         class="btn-outline btn-warning"
+        type="button"
         name="แชร์รูปภาพ"
         onclick="navigator.share({ url: '/' })"
       />
