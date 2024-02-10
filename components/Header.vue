@@ -14,7 +14,13 @@
         </a>
       </div>
       <div class="navbar-center">
-        <a class="btn btn-ghost text-xl text-pink" href="/">Hamtarot</a>
+        <a
+          class="btn btn-ghost text-3xl text-pink"
+          style="font-family: 'Cherry Bomb One', system-ui; font-weight: normal"
+          href="/"
+        >
+          HAMTAROT
+        </a>
       </div>
       <div class="navbar-end">
         <!-- ? If the user has already logged in -->
