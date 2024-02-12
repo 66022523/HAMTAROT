@@ -2,6 +2,6 @@
   <Header />
   <main class="text-primary-content py-36">
     <slot />
-    <Contactus />
+    <Contact />
   </main>
 </template>
