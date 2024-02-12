@@ -1,11 +1,11 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  css: ['~/assets/css/main.css'],
+  css: ["~/assets/css/main.css"],
   modules: ["@nuxtjs/google-fonts", "@nuxtjs/tailwindcss"],
   googleFonts: {
     families: {
-      Poppins: {
+      Kanit: {
         wght: [100, 200, 300, 400, 500, 600, 700, 800, 900],
         ital: [100, 200, 300, 400, 500, 600, 700, 800, 900],
       },
@@ -13,7 +13,7 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
-      title: 'Hamtarot',
+      title: "Hamtarot",
       meta: [
         {
           name: "viewport",

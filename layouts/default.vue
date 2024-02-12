@@ -1,10 +1,7 @@
 <template>
   <Header />
-  <main class="pt-36">
+  <main class="text-primary-content pt-36">
     <slot />
+    <Contactus />
   </main>
-  <div>
-    <Cards />
-  </div>
-  <contactus />
 </template>
