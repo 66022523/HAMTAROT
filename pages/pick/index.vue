@@ -23,7 +23,7 @@
         ขอบารมีท่านเปิดดวงชะตา บอกเล่าคำทำนายผ่านไพ่ยิปนี้
       </p>
       <br />
-      <router-link to="/result">
+      <router-link to="/pick/result">
         <button class="btn btn-primary">ทำนาย</button>
       </router-link>
     </div>
