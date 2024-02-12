@@ -76,7 +76,7 @@
             <li class="menu-title">จัดการบัญชี</li>
             <li><a href="/account/login">ลงชื่อเข้าใช้</a></li>
             <li><a href="/account/register">สมัครบัญชีใหม่</a></li>
-            <li><a href="/account/forgot">ลืมรหัสผ่าน</a></li>
+            <li><a href="/account/forget">ลืมรหัสผ่าน</a></li>
           </ul>
         </div>
       </div>
