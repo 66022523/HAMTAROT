@@ -1,8 +1,11 @@
+const colors = require('tailwindcss/colors')
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [],
   theme: {
     colors: {
+      ...colors,
       black: "#332941",
       navy: "#3B3486",
       purple: "#864AF9",

@@ -9,6 +9,7 @@ export default defineNuxtConfig({
         wght: [100, 200, 300, 400, 500, 600, 700, 800, 900],
         ital: [100, 200, 300, 400, 500, 600, 700, 800, 900],
       },
+      "Cherry Bomb One": true
     },
   },
   app: {
