@@ -6,9 +6,9 @@
       <p>หมวดหมู่ รายวัน</p>
     </div>
     <div
-      class="bg-ham-watermark relative bg-black overflow-hidden shadow-xl rounded-xl p-6 mb-8"
+      class="bg-watermark relative bg-black overflow-hidden shadow-xl rounded-xl p-6 mb-8"
     >
-      <Cards class="mb-4" />
+      <Cards class="mb-4 mx-auto" />
       <h3>{{ name }}</h3>
       <span>{{ info }}</span>
       <p class="mt-4">
@@ -63,7 +63,7 @@
 </template>
 
 <style scoped>
-.bg-ham-watermark::before {
+.bg-watermark::before {
   content: "";
   display: block;
   width: 100%;
