@@ -1,4 +1,5 @@
 <template>
+  <Rating />
   <div class="container mx-auto">
     <div class="text-center mb-8">
       <h2 class="text-yellow">ผลการทำนาย</h2>
