@@ -3,7 +3,7 @@
     <div class="modal-box bg-gray text-black text-center space-y-4">
       <img
         class="mx-auto"
-        src="/public/ICON/rating.png"
+        src="/assets/icons/rating.png"
         alt="Star Icon"
         width="100px"
       />

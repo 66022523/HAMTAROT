@@ -41,10 +41,11 @@
             tabindex="0"
             class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
+            <li class="menu-title">จัดการบัญชี</li>
             <li>
-              <a class="justify-between"> Profile </a>
+              <a href="/account/edit">แก้ไขโปรไฟล์</a>
             </li>
-            <li><a>Logout</a></li>
+            <li><a>ลงชื่อออก</a></li>
           </ul>
         </div> -->
 
@@ -72,10 +73,10 @@
             tabindex="0"
             class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
-            <li class="menu-title">ยืนยันตัวตน</li>
-            <li><a href="/login">ลงชื่อเข้าใช้</a></li>
-            <li><a href="/register">สมัครบัญชีใหม่</a></li>
-            <li><a href="/forgot">ลืมรหัสผ่าน</a></li>
+            <li class="menu-title">จัดการบัญชี</li>
+            <li><a href="/account/login">ลงชื่อเข้าใช้</a></li>
+            <li><a href="/account/register">สมัครบัญชีใหม่</a></li>
+            <li><a href="/account/forget">ลืมรหัสผ่าน</a></li>
           </ul>
         </div>
       </div>
