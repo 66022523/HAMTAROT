@@ -12,7 +12,7 @@
       <div>
         <label for="nickname" class="block text-sm font-medium text-gray-700" style="text-align: left;">ชื่อเล่น</label>
         <input v-model="user" type="text" placeholder="ชื่อเล่นหรือนามแฝง" required
-          style="width: 40px00px; text-align: left; ">
+          style="width: 440px; text-align: left; ">
 
 
         <br><br>
@@ -52,7 +52,6 @@ export default {
   data() {
     return {
       user: '',
-      inputWidth: '380px'
 
     }
   },
