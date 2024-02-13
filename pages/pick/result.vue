@@ -32,7 +32,7 @@
           <div
             class="bg-ham-watermark relative bg-black overflow-hidden shadow-xl rounded-xl p-6"
           >
-            <Cards class="mb-4" />
+            <Cards class="mb-4 mx-auto" />
             <h3>{{ name }}</h3>
             <span>{{ info }}</span>
             <p class="mt-4">
