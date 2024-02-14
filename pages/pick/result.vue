@@ -1,19 +1,21 @@
 <template>
   <Rating />
-  <div class="container mx-auto">
+  <div class="container mx-auto text-pink">
     <div class="text-center mb-8">
       <h2 class="text-yellow">ผลการทำนาย</h2>
-      <p>หมวดหมู่ รายวัน</p>
+      <p>หมวดหมู่ {{ cards.category[categoryQuery].title }}</p>
     </div>
     <div
-      class="bg-watermark relative bg-black overflow-hidden shadow-xl rounded-xl p-6 mb-8"
+      class="bg-watermark card relative bg-black overflow-hidden shadow-xl rounded-badge mb-8"
     >
-      <Cards class="mb-4 mx-auto" />
-      <h3>{{ name }}</h3>
-      <span>{{ info }}</span>
-      <p class="mt-4">
-        {{ description }}
-      </p>
+      <div class="card-body">
+        <Cards class="mb-4 mx-auto" />
+        <h3>{{ cards.tarot[cardQuery].name }}</h3>
+        <span>{{ cards.tarot[cardQuery].info }}</span>
+        <p class="mt-4">
+          {{ cards.category[categoryQuery].content[cardQuery] }}
+        </p>
+      </div>
     </div>
     <div class="flex gap-2 justify-center mb-8">
       <Button
@@ -30,14 +32,16 @@
             <b>(สามารถกดแป้น <u>ESC</u> ออกได้)</b>
           </p>
           <div
-            class="bg-ham-watermark relative bg-black overflow-hidden shadow-xl rounded-xl p-6"
+            class="bg-watermark card relative bg-black overflow-hidden shadow-xl rounded-badge mb-8"
           >
-            <Cards class="mb-4 mx-auto" />
-            <h3>{{ name }}</h3>
-            <span>{{ info }}</span>
-            <p class="mt-4">
-              {{ description }}
-            </p>
+            <div class="card-body">
+              <Cards class="mb-4 mx-auto" />
+              <h3>{{ cards.tarot[cardQuery].name }}</h3>
+              <span>{{ cards.tarot[cardQuery].info }}</span>
+              <p class="mt-4">
+                {{ cards.category[categoryQuery].content[cardQuery] }}
+              </p>
+            </div>
           </div>
           <div class="modal-action">
             <form method="dialog">
@@ -62,6 +66,19 @@
   </div>
 </template>
 
+<script setup>
+import cards from "../../content/cards.json";
+
+const route = useRouter();
+const query = route.currentRoute.value.query;
+const categoryQuery = query.category;
+const cardQuery = query.card;
+
+useSeoMeta({
+  title: `Hamtarot - ${cards.tarot[cardQuery].name.split(" ")[0]}`,
+});
+</script>
+
 <style scoped>
 .bg-watermark::before {
   content: "";
@@ -78,15 +95,3 @@
   opacity: 0.05;
 }
 </style>
-
-<script setup>
-import cards from "../content/cards.json";
-
-const name = ref(cards.tarot[0].name);
-const info = ref(cards.tarot[0].info);
-const description = ref(cards.category.daily[0]);
-
-useSeoMeta({
-  title: `Hamtarot - ${name.value.split(" ")[0]}`,
-});
-</script>

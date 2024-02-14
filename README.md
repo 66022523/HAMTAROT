@@ -11,6 +11,16 @@
 - [Node.js](https://nodejs.org)
 - [Visual Studio Code](https://code.visualstudio.com)
 
+## เครื่องมือ
+
+- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) [?](https://eslint.org/)
+- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) [?](https://prettier.io/)
+- [Tailwind](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) [?](https://tailwindcss.com/)
+- DaisyUI [?](https://daisyui.com/)
+- Flaticon [?](https://www.flaticon.com/uicons/interface-icons)
+
+> คลิก ? เพื่อเรียนรู้เพิ่มเติมหรือเข้าสู่เว็บไซต์
+
 ## ตั้งค่าโปรเจกต์
 
 1. เปิดบรรทัดคำสั่งแล้วรันคำสั่งดังนี้เพื่อโคลนโปรเจกต์:

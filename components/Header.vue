@@ -1,22 +1,25 @@
 <template>
   <header class="container mx-auto fixed top-10 left-0 right-0 z-10">
     <nav
-      class="navbar bg-[#3B348620] py-3 px-5 rounded-xl shadow-xl backdrop-blur"
+      class="navbar border border-indigo-950 p-3 bg-[#3B348620] rounded-xl shadow-xl backdrop-blur"
     >
       <div class="navbar-start">
-        <a href="/">
+        <a class="btn btn-ghost btn-circle" href="/">
           <img
-            class="rounded-full"
             src="/favicon.ico"
             alt="Hamtarot Favicon"
             width="50px"
+            height="50px"
           />
         </a>
       </div>
       <div class="navbar-center">
         <a
           class="btn btn-ghost text-3xl text-pink"
-          style="font-family: 'Cherry Bomb One', system-ui; font-weight: normal"
+          style="
+            font-family: &quot;Cherry Bomb One&quot;, system-ui;
+            font-weight: normal;
+          "
           href="/"
         >
           HAMTAROT

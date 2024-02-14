@@ -1,28 +1,32 @@
 <template>
   <div>
     <div v-if="showAlert" class="custom-alert">
-      <a class="alert-text">คุณดูดวงในหมวดหมู่นี้ไปแล้ว แน่ใจหรือไม่ที่จะดูต่อ?</a>
+      <a class="alert-text"
+        >คุณดูดวงในหมวดหมู่นี้ไปแล้ว แน่ใจหรือไม่ที่จะดูต่อ?</a
+      >
       <strong @click="hideAlert" class="close-button">ดูต่อไป</strong>
     </div>
-    <button @click="showAlert = true" class="toggle-button">Toggle Alert</button>
+    <button @click="showAlert = true" class="toggle-button">
+      Toggle Alert
+    </button>
   </div>
 </template>
-  
+
 <script>
 export default {
   data() {
     return {
-      showAlert: false
+      showAlert: false,
     };
   },
   methods: {
     hideAlert() {
       this.showAlert = false;
-    }
-  }
+    },
+  },
 };
 </script>
-  
+
 <style scoped>
 .custom-alert {
   background-color: #ffeaa7;
@@ -40,7 +44,6 @@ export default {
   width: 100%;
   z-index: 999;
 }
-
 
 .close-button {
   cursor: pointer;
@@ -61,4 +64,3 @@ export default {
   background-color: #74b9ff;
 }
 </style>
-  

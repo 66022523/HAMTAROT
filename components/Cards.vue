@@ -1,32 +1,41 @@
 <template>
-  <div class="card flex items-center justify-center">
-    <div class="card-icon">
-      <img :src="icon" alt="" width="80px" />
+  <div
+    class="card w-[250px] h-[360px] shadow-xl rounded-badge bg-navy border-[15px] border-pink"
+  >
+    <div class="m-auto rounded-full bg-pink border-8 border-pink">
+      <img
+        class="p-2"
+        :class="imgClass"
+        :src="icon"
+        :alt="alt"
+        :width="width"
+        :height="height"
+      />
     </div>
   </div>
 </template>
 
-<style scoped>
-.card {
-  width: 225px;
-  height: 355px;
-  border-radius: 20px;
-  border: 15px solid white;
-  background-color: #3b3486;
-}
-
-.card-icon {
-  border-radius: 100%;
-  background-color: #f8edff;
-  border: 8px solid white;
-}
-</style>
-
 <script setup>
 defineProps({
+  imgClass: {
+    type: String,
+    default: "",
+  },
   icon: {
     type: String,
     default: "/favicon.ico",
+  },
+  alt: {
+    type: String,
+    default: "",
+  },
+  width: {
+    type: String,
+    default: "80px",
+  },
+  height: {
+    type: String,
+    default: "",
   },
 });
 </script>

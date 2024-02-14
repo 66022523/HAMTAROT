@@ -14,8 +14,12 @@
           <i class="bx bxs-user"></i>
         </div>
         <div class="register-forgot">
-          <div style="float: left"><a href="/account/register">ลงทะเบียน</a></div>
-          <div style="float: right"><a href="/account/forget">ลืมรหัสผ่าน</a></div>
+          <div style="float: left">
+            <a href="/account/register">ลงทะเบียน</a>
+          </div>
+          <div style="float: right">
+            <a href="/account/forget">ลืมรหัสผ่าน</a>
+          </div>
           <div style="clear: both"></div>
         </div>
         <button type="submit" class="btn">ลงชื่อเข้าใช้</button>
