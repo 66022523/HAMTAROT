@@ -2,13 +2,12 @@
   <section class="container mx-auto text-pink text-center">
     <h2 class="text-yellow">คลิกเลือกไพ่ 1 ใบ แล้วคลิกปุ่ม 'ทำนาย'</h2>
     <h3 class="mb-8">หมวดหมู่ {{ cards.category[categoryQuery].title }}</h3>
-    <div
-      class="grid grid-cols-[repeat(auto-fill,3%)] my-12 ml-[10%] justify-center items-center"
-    >
-      <Cards
+    <div class="grid grid-cols-[repeat(auto-fill,3%)] my-12 ml-[10%]">
+      <CardTarot
         v-for="index in cards.tarot.length"
         :key="index"
         :class="{ active: active === index }"
+        assets-class="p-2"
         :style="{
           transform: active === index ? 'translateY(-40px)' : null,
         }"
@@ -43,7 +42,7 @@
 </template>
 
 <script setup>
-import cards from "../../content/cards.json";
+import cards from "~/content/cards.json";
 
 const route = useRouter();
 const query = route.currentRoute.value.query;
