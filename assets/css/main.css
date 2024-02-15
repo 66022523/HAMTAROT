@@ -4,8 +4,9 @@
   font-family: "Kanit", sans-serif;
 }
 
-html {
-  min-height: 100%;
+body {
+  width: 100%;
+  min-height: 100vh;
   background: url("/assets/images/background.jpg");
   background-size: cover;
   box-shadow: inset 0 0 0 2000px #33294190;
