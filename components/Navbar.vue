@@ -3,26 +3,26 @@
     class="navbar p-3 border border-indigo-950 bg-[#3B348620] rounded-xl shadow-xl backdrop-blur"
   >
     <div class="navbar-start">
-      <a class="btn btn-ghost btn-circle" href="/">
+      <NuxtLink class="btn btn-ghost btn-circle" to="/">
         <img
           src="/favicon.ico"
           alt="Hamtarot Favicon"
           width="50px"
           height="50px"
         />
-      </a>
+      </NuxtLink>
     </div>
     <div class="navbar-center">
-      <a
+      <NuxtLink
         class="btn btn-ghost text-3xl text-pink"
         style="
           font-family: &quot;Cherry Bomb One&quot;, system-ui;
           font-weight: normal;
         "
-        href="/"
+        to="/"
       >
         HAMTAROT
-      </a>
+      </NuxtLink>
     </div>
     <div class="navbar-end">
       <!-- ? If the user has already logged in -->
@@ -45,7 +45,7 @@
           >
             <li class="menu-title">จัดการบัญชี</li>
             <li>
-              <a href="/account/edit">แก้ไขโปรไฟล์</a>
+              <NuxtLink to="/account">แก้ไขโปรไฟล์</NuxtLink>
             </li>
             <li><a>ลงชื่อออก</a></li>
           </ul>
@@ -53,7 +53,12 @@
 
       <!-- ? If the user has not logged in yet -->
       <div class="dropdown dropdown-end">
-        <div tabindex="0" role="button" class="btn btn-circle avatar">
+        <div
+          tabindex="0"
+          role="button"
+          class="btn btn-circle avatar"
+          data-theme="light"
+        >
           <div class="w-10 rounded-full">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -73,12 +78,24 @@
         </div>
         <ul
           tabindex="0"
-          class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+          class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-black rounded-box w-52"
         >
           <li class="menu-title">จัดการบัญชี</li>
-          <li><a href="/account/login">ลงชื่อเข้าใช้</a></li>
-          <li><a href="/account/register">สมัครบัญชีใหม่</a></li>
-          <li><a href="/account/forget">ลืมรหัสผ่าน</a></li>
+          <li>
+            <NuxtLink class="text-pink" to="/account/login"
+              >ลงชื่อเข้าใช้</NuxtLink
+            >
+          </li>
+          <li>
+            <NuxtLink class="text-pink" to="/account/register"
+              >สมัครบัญชีใหม่</NuxtLink
+            >
+          </li>
+          <li>
+            <NuxtLink class="text-pink" to="/account/forget"
+              >ลืมรหัสผ่าน</NuxtLink
+            >
+          </li>
         </ul>
       </div>
     </div>
