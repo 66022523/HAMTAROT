@@ -1,11 +1,5 @@
 <template>
   <button class="btn">
-    {{ name }}
+    <slot />
   </button>
 </template>
-
-<script setup>
-defineProps({
-  name: String,
-});
-</script>
