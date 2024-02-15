@@ -13,6 +13,7 @@ export default defineNuxtConfig({
     },
   },
   app: {
+    pageTransition: { name: "page", mode: "out-in" },
     head: {
       title: "Hamtarot",
       meta: [
@@ -28,6 +29,9 @@ export default defineNuxtConfig({
       style: [],
       script: [],
       noscript: [],
+      bodyAttrs: {
+        "data-theme": "dark",
+      },
     },
   },
 });
