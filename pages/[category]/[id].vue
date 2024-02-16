@@ -1,22 +1,24 @@
 <script setup>
+import { toPng, toJpeg, toSvg } from "html-to-image";
 import data from "~/assets/json/data.json";
 
 const route = useRoute();
+const params = route.params;
 
 const update = () => {
-  if (!route.params) {
+  if (!params) {
     if (
-      !route.params.category ||
-      !Object.keys(data.category).includes(route.params.category)
+      !params.category ||
+      !Object.keys(data.category).includes(params.category)
     )
       return useSeoMeta({
         title: "Hamtarot - หมวดหมู่ไม่ถูกต้อง",
       });
     if (
-      !route.params.id &&
-      typeof parseInt(route.params.id) !== "number" &&
-      parseInt(route.params.id) < 0 &&
-      parseInt(route.params.id) >= Object.keys(data.tarot).length
+      !params.id &&
+      typeof parseInt(params.id) !== "number" &&
+      parseInt(params.id) < 0 &&
+      parseInt(params.id) >= Object.keys(data.tarot).length
     )
       return useSeoMeta({
         title: "Hamtarot - ไม่พบการ์ดนี้",
@@ -24,10 +26,41 @@ const update = () => {
   }
 
   useSeoMeta({
-    title: `Hamtarot - ${data.tarot[parseInt(route.params.id) - 1].name.split(" ")[0]}`,
+    title: `Hamtarot - ${data.tarot[parseInt(params.id) - 1].name.split(" ")[0]}`,
   });
 };
 update();
+
+const selected = ref("png");
+const options = ref([
+  { text: "PNG", value: "png" },
+  { text: "SVG", value: "svg" },
+  { text: "JPEG", value: "jpeg" },
+]);
+const ranged = ref("100");
+const isDownloading = ref(false);
+
+const saveAsImage = async (extensions = "png", quality = 1) => {
+  isDownloading.value = true;
+  let dataURL = "";
+  const name = data.tarot[parseInt(params.id) - 1].alias
+    .toLowerCase()
+    .replaceAll(" ", "-");
+  const link = document.createElement("a");
+  const element = document.getElementById("card-image");
+
+  if (extensions === "png") dataURL = await toPng(element);
+  if (extensions === "svg")
+    dataURL = await toSvg(element, { filter: () => element.tagName !== "i" });
+  if (extensions === "jpeg")
+    dataURL = await toJpeg(element, { quality: parseInt(quality) });
+  if (dataURL) {
+    link.download = `${name}.${extensions}`;
+    link.href = dataURL;
+    link.click();
+    isDownloading.value = false;
+  }
+};
 </script>
 
 <template>
@@ -36,15 +69,15 @@ update();
       $route.params &&
       $route.params.id &&
       $route.params.category &&
-      Object.keys(data.category).includes(route.params.category) &&
-      typeof parseInt(route.params.id) === 'number' &&
-      parseInt(route.params.id) > 0 &&
-      parseInt(route.params.id) <= Object.keys(data.tarot).length
+      Object.keys(data.category).includes($route.params.category) &&
+      typeof parseInt($route.params.id) === 'number' &&
+      parseInt($route.params.id) > 0 &&
+      parseInt($route.params.id) <= Object.keys(data.tarot).length
     "
     class="container mx-auto"
   >
     <RatingDialog />
-    <div class="text-center mb-8">
+    <div class="mb-8 text-center">
       <h2 class="text-portica">ผลการทำนาย</h2>
       <p>หมวดหมู่ {{ data.category[$route.params.category].title }}</p>
     </div>
@@ -63,7 +96,7 @@ update();
         ]
       "
     />
-    <div class="flex justify-center gap-2 mb-8">
+    <div class="mb-8 flex justify-center gap-2">
       <Button
         class="btn-warning"
         type="button"
@@ -72,13 +105,14 @@ update();
         บันทึกภาพ
       </Button>
       <dialog id="saveImageModal" class="modal">
-        <div class="modal-box bg-blackcurrant">
-          <h3 class="font-bold text-lg text-portica">บันทึกภาพ</h3>
+        <div class="modal-box">
+          <h3 class="text-lg font-bold text-portica">บันทึกภาพ</h3>
           <p class="py-4">
             คลิกบันทึกภาพที่ด้านล่างหรือปิดหน้าต่างนี้
             <b>(สามารถกดแป้น <u>ESC</u> ออกได้)</b>
           </p>
           <CardResult
+            id="card-image"
             :number="$route.params.id"
             :image="data.tarot[parseInt($route.params.id) - 1].image"
             :title="data.tarot[parseInt($route.params.id) - 1].alias"
@@ -93,13 +127,55 @@ update();
               ]
             "
           />
-          <div class="modal-action">
+          <div class="grid grid-cols-2 items-center justify-stretch gap-2">
+            <SelectInput v-model="selected" hint-top-left="รูปแบบของไฟล์ภาพ">
+              <option
+                v-for="option in options"
+                :key="option"
+                :value="option.value"
+              >
+                {{ option.text }}
+              </option>
+            </SelectInput>
+            <div>
+              <RangeInput
+                v-model="ranged"
+                min="0"
+                max="100"
+                :value="ranged"
+                step="25"
+                hint-top-left="คุณภาพ"
+              >
+                <span>0</span>
+                <span>0.25</span>
+                <span>0.5</span>
+                <span>0.75</span>
+                <span>1</span>
+              </RangeInput>
+            </div>
+          </div>
+          <div
+            class="modal-action grid grid-cols-2 items-center justify-stretch gap-2"
+          >
+            <Button
+              class="btn-primary"
+              :disabled="selected.value"
+              @click="saveAsImage(selected, ranged)"
+            >
+              <span
+                v-if="isDownloading"
+                class="loading loading-spinner loading-md"
+              ></span>
+              บันทึกภาพ
+            </Button>
             <form method="dialog">
-              <Button class="btn-primary me-2">บันทึกภาพ</Button>
-              <Button class="btn-outline btn-primary">ปิด</Button>
+              <Button class="btn-outline btn-primary w-full">ปิด</Button>
             </form>
           </div>
         </div>
+        <form method="dialog" class="modal-backdrop">
+          <button>close</button>
+        </form>
       </dialog>
       <Button
         class="btn-outline btn-warning"
