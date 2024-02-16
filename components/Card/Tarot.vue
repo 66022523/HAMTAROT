@@ -8,6 +8,10 @@ defineProps({
     type: String,
     default: "",
   },
+  glass: {
+    type: Boolean,
+    default: true,
+  },
   icon: {
     type: String,
     default: "/favicon.ico",
@@ -45,35 +49,45 @@ defineProps({
 
 <template>
   <div
-    class="card flex justify-between items-center w-[250px] h-[360px] shadow-xl rounded-badge border-[15px] bg-gradient-to-bl from-electric-violet to-minsk border-blue-chalk"
-    :class="flip ? 'bg-cover bg-center bg-no-repeat bg-local' : null"
-    :style="flip ? 'background-image: url(\'' + image + '\')' : null"
+    class="card h-[360px] w-[250px] overflow-hidden rounded-badge border-[15px] border-blue-chalk bg-gradient-to-bl from-electric-violet to-minsk shadow-xl"
   >
     <div
-      v-if="flip"
-      class="flex justify-center items-center w-8 h-8 mt-2 rounded-full bg-blue-chalk text-blackcurrant"
+      class="flex h-full w-full flex-col items-center justify-between overflow-hidden"
+      :class="
+        flip
+          ? 'bg-cover bg-local bg-center bg-no-repeat'
+          : glass
+            ? 'glass'
+            : null
+      "
+      :style="flip ? 'background-image: url(\'' + image + '\');' : null"
     >
-      {{ number }}
-    </div>
-    <div
-      v-if="!flip"
-      class="flex justify-center items-center m-auto rounded-full bg-blue-chalk border-8 border-blue-chalk"
-    >
-      <img
-        v-if="!iAssets"
-        :class="assetsClass"
-        :src="icon"
-        :alt="alt"
-        :width="width"
-        :height="height"
-      />
-      <i v-if="iAssets" :class="[assetsClass, icon]"></i>
-    </div>
-    <div
-      v-if="flip"
-      class="flex justify-center items-center max-w-44 p-2 rounded-tl-xl rounded-tr-xl bg-blue-chalk text-blackcurrant"
-    >
-      <p class="truncate text-center">{{ title }}</p>
+      <div
+        v-if="flip"
+        class="mt-2 flex h-8 w-8 items-center justify-center rounded-full bg-blue-chalk text-blackcurrant"
+      >
+        {{ number }}
+      </div>
+      <div
+        v-if="!flip"
+        class="m-auto flex items-center justify-center rounded-full border-8 border-blue-chalk bg-blue-chalk"
+      >
+        <img
+          v-if="!iAssets"
+          :class="assetsClass"
+          :src="icon"
+          :alt="alt"
+          :width="width"
+          :height="height"
+        />
+        <i v-if="iAssets" :class="[assetsClass, icon]"></i>
+      </div>
+      <div
+        v-if="flip"
+        class="flex max-w-44 items-center justify-center rounded-tl-xl rounded-tr-xl bg-blue-chalk p-2 text-blackcurrant"
+      >
+        <p class="truncate text-center">{{ title }}</p>
+      </div>
     </div>
   </div>
 </template>

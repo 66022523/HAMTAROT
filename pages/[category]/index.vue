@@ -21,6 +21,7 @@ import data from "~/assets/json/data.json";
         :key="index"
         :class="{ active: active === index }"
         assets-class="p-2"
+        :glass="false"
         :style="{
           transform: active === index ? 'translateY(-40px)' : null,
         }"
