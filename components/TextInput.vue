@@ -59,7 +59,7 @@ defineProps({
       <slot />
       <input
         v-model="model"
-        class="grow"
+        class="grow bg-blackcurrant"
         :class="inputClass"
         :type="type"
         :placeholder="placeholder"
