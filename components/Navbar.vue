@@ -1,9 +1,24 @@
+<script setup>
+const router = useRouter();
+
+const goBack = (params) => {
+  if (params.category && params.id) return router.replace({ path: "/" });
+
+  router.back();
+};
+</script>
+
 <template>
-  <nav
-    class="navbar p-3 border border-indigo-950 bg-[#3B348620] rounded-xl shadow-xl backdrop-blur"
-  >
-    <div class="navbar-start">
-      <NuxtLink class="btn btn-ghost btn-circle" to="/">
+  <nav class="navbar rounded-xl bg-[#3B348620] p-3 shadow-xl backdrop-blur">
+    <div class="navbar-start gap-2">
+      <button
+        v-if="$route.path !== '/'"
+        class="btn btn-circle btn-ghost"
+        @click="goBack($route.params)"
+      >
+        <i class="fi fi-sr-angle-small-left text-2xl leading-[0]"></i>
+      </button>
+      <NuxtLink class="btn btn-circle btn-ghost" to="/">
         <img
           src="/favicon.ico"
           alt="Hamtarot Favicon"
@@ -53,7 +68,7 @@
         <div
           tabindex="0"
           role="button"
-          class="btn btn-circle btn-primary avatar"
+          class="avatar btn btn-circle btn-primary"
         >
           <div class="w-10 rounded-full">
             <svg
@@ -62,7 +77,7 @@
               viewBox="0 0 24 24"
               stroke-width="1.5"
               stroke="currentColor"
-              class="w-10 h-10"
+              class="h-10 w-10"
             >
               <path
                 stroke-linecap="round"
@@ -74,7 +89,7 @@
         </div>
         <ul
           tabindex="0"
-          class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+          class="menu dropdown-content menu-sm z-[1] mt-3 w-52 rounded-box bg-base-100 p-2 shadow"
         >
           <li class="menu-title">จัดการบัญชี</li>
           <li>
