@@ -1,4 +1,10 @@
 {
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "editor.quickSuggestions": {
+    "strings": true
+  },
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
   }
