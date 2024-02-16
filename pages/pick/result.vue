@@ -1,5 +1,5 @@
 <script setup>
-import data from "~/assets/json/data.json?url";
+import data from "~/assets/json/data.json";
 
 const route = useRouter();
 const query = route.currentRoute.value.query;
