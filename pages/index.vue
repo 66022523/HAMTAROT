@@ -1,5 +1,5 @@
 <script setup>
-import data from "/data.json";
+import data from "~/assets/json/data.json";
 
 const categories = Object.keys(data.category);
 </script>
