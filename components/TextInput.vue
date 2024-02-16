@@ -1,40 +1,3 @@
-<template>
-  <label class="form-control w-full">
-    <div v-if="hintTopLeft || hintTopRight" class="label">
-      <span v-if="hintTopLeft" class="label-text text-pink">
-        {{ hintTopLeft }}
-      </span>
-      <span v-if="hintTopRight" class="label-text-alt text-pink">
-        {{ hintTopRight }}
-      </span>
-    </div>
-    <div
-      class="input input-bordered flex items-center gap-2"
-      data-theme="light"
-    >
-      <slot />
-      <input
-        v-model="model"
-        class="grow"
-        :class="inputClass"
-        :type="type"
-        :placeholder="placeholder"
-        :value="value"
-        :min="min"
-        :max="max"
-      />
-    </div>
-    <div v-if="hintBottomLeft || hintBottomRight" class="label">
-      <span v-if="hintBottomLeft" class="label-text-alt text-pink">
-        {{ hintBottomLeft }}
-      </span>
-      <span v-if="hintBottomRight" class="label-text-alt text-pink">
-        {{ hintBottomRight }}
-      </span>
-    </div>
-  </label>
-</template>
-
 <script setup>
 const model = defineModel({ type: String });
 
@@ -81,3 +44,37 @@ defineProps({
   },
 });
 </script>
+
+<template>
+  <label class="form-control w-full">
+    <div v-if="hintTopLeft || hintTopRight" class="label">
+      <span v-if="hintTopLeft" class="label-text">
+        {{ hintTopLeft }}
+      </span>
+      <span v-if="hintTopRight" class="label-text-alt">
+        {{ hintTopRight }}
+      </span>
+    </div>
+    <div class="input input-bordered flex items-center gap-2">
+      <slot />
+      <input
+        v-model="model"
+        class="grow"
+        :class="inputClass"
+        :type="type"
+        :placeholder="placeholder"
+        :value="value"
+        :min="min"
+        :max="max"
+      />
+    </div>
+    <div v-if="hintBottomLeft || hintBottomRight" class="label">
+      <span v-if="hintBottomLeft" class="label-text-alt">
+        {{ hintBottomLeft }}
+      </span>
+      <span v-if="hintBottomRight" class="label-text-alt">
+        {{ hintBottomRight }}
+      </span>
+    </div>
+  </label>
+</template>

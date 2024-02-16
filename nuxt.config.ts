@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   css: ["~/assets/css/main.css"],
-  modules: ["@nuxtjs/google-fonts", "@nuxtjs/tailwindcss"],
+  modules: ["@nuxt/image", "@nuxtjs/google-fonts", "@nuxtjs/tailwindcss"],
   googleFonts: {
     families: {
       Kanit: {
@@ -14,6 +14,7 @@ export default defineNuxtConfig({
   },
   app: {
     pageTransition: { name: "page", mode: "out-in" },
+    layoutTransition: { name: "page", mode: "out-in" },
     head: {
       title: "Hamtarot",
       meta: [
@@ -29,9 +30,7 @@ export default defineNuxtConfig({
       style: [],
       script: [],
       noscript: [],
-      bodyAttrs: {
-        "data-theme": "dark",
-      },
     },
   },
+  ssr: false,
 });

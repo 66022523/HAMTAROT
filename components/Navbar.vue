@@ -14,11 +14,8 @@
     </div>
     <div class="navbar-center">
       <NuxtLink
-        class="btn btn-ghost text-3xl text-pink"
-        style="
-          font-family: &quot;Cherry Bomb One&quot;, system-ui;
-          font-weight: normal;
-        "
+        class="btn btn-ghost text-4xl"
+        style="font-family: &quot;Cherry Bomb One&quot;, system-ui"
         to="/"
       >
         HAMTAROT
@@ -56,8 +53,7 @@
         <div
           tabindex="0"
           role="button"
-          class="btn btn-circle avatar"
-          data-theme="light"
+          class="btn btn-circle btn-primary avatar"
         >
           <div class="w-10 rounded-full">
             <svg
@@ -78,23 +74,17 @@
         </div>
         <ul
           tabindex="0"
-          class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-black rounded-box w-52"
+          class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
         >
           <li class="menu-title">จัดการบัญชี</li>
           <li>
-            <NuxtLink class="text-pink" to="/account/login"
-              >ลงชื่อเข้าใช้</NuxtLink
-            >
+            <NuxtLink to="/account/login"> ลงชื่อเข้าใช้ </NuxtLink>
           </li>
           <li>
-            <NuxtLink class="text-pink" to="/account/register"
-              >สมัครบัญชีใหม่</NuxtLink
-            >
+            <NuxtLink to="/account/register"> สมัครบัญชีใหม่ </NuxtLink>
           </li>
           <li>
-            <NuxtLink class="text-pink" to="/account/forget"
-              >ลืมรหัสผ่าน</NuxtLink
-            >
+            <NuxtLink to="/account/forget"> ลืมรหัสผ่าน </NuxtLink>
           </li>
         </ul>
       </div>

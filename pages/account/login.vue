@@ -17,10 +17,10 @@ const submit = (event) => {
 <template>
   <section class="container mx-auto flex justify-center items-center">
     <div
-      class="card w-fit text-pink bg-navy border-pink border-[15px] rounded-badge shadow-xl"
+      class="card w-fit bg-minsk border-blue-chalk border-[15px] rounded-badge shadow-xl"
     >
       <div class="card-body text-center">
-        <h2 class="text-yellow mb-8">เข้าสู่ระบบ</h2>
+        <h2 class="text-portica mb-8">เข้าสู่ระบบ</h2>
         <form @submit.prevent="submit">
           <TextInput
             v-model="username"
@@ -75,18 +75,19 @@ const submit = (event) => {
             ลงชื่อเข้าใช้
           </Button>
         </form>
-        <div class="divider before:bg-pink after:bg-pink">หรือ</div>
+        <div class="divider">หรือ</div>
         <div class="flex justify-between items-center">
           <NuxtLink
             class="btn btn-circle btn-link"
             href="https://accounts.google.com/"
             target="_blank"
           >
-            <img
+            <NuxtImg
               class="rounded-full"
               src="/assets/icons/google.png"
               alt=""
               width="40px"
+              preload
             />
           </NuxtLink>
           <NuxtLink
@@ -94,11 +95,12 @@ const submit = (event) => {
             href="https://www.facebook.com/login.php/"
             target="_blank"
           >
-            <img
+            <NuxtImg
               class="rounded-full"
               src="/assets/icons/facebook.png"
               alt=""
               width="40px"
+              preload
             />
           </NuxtLink>
           <NuxtLink
@@ -106,11 +108,12 @@ const submit = (event) => {
             href="https://access.line.me/oauth2/v2.1/login?returnUri=%2Foauth2%2Fv2.1%2Fauthorize%2Fconsent&   loginChannelId=1521958360&loginState=CLn4LYQoulJIgLFHIw15nw#/"
             target="_blank"
           >
-            <img
+            <NuxtImg
               class="rounded-full"
               src="/assets/icons/line.png"
               alt=""
               width="40px"
+              preload
             />
           </NuxtLink>
         </div>

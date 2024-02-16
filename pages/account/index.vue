@@ -1,8 +1,8 @@
 <template>
   <section class="container mx-auto flex justify-center items-center">
-    <div class="card w-fit text-pink bg-navy rounded-badge shadow-xl">
+    <div class="card w-fit bg-minsk rounded-badge shadow-xl">
       <div class="card-body px-12 py-10">
-        <h2 class="text-yellow text-center">จัดการบัญชี</h2>
+        <h2 class="text-portica text-center">จัดการบัญชี</h2>
         <p class="mb-8 text-center">
           เปลี่ยนแปลงหรือจัดการบัญชีของคุณ หากมีปัญหาใด ๆ
           สามารถติดต่อเราได้ที่ปุ่ม "?"
@@ -13,7 +13,7 @@
           class="flex flex-row gap-8 justify-center justify-items-center items-center"
         >
           <div class="avatar">
-            <div class="w-24 p-2 bg-pink rounded-full">
+            <div class="w-24 p-2 bg-blue-chalk rounded-full">
               <img src="/assets/icons/person.png" />
             </div>
           </div>

@@ -1,11 +1,12 @@
 <template>
   <dialog id="ratingModal" class="modal">
-    <div class="modal-box bg-gray text-black text-center space-y-4">
-      <img
+    <div class="modal-box text-center space-y-4">
+      <NuxtImg
         class="mx-auto"
         src="/assets/icons/rating.png"
         alt="Star Icon"
         width="100px"
+        preload
       />
       <h1 class="text-lg">
         <b>คุณพึงพอใจกับเว็บไซต์เรามากแค่ไหน?</b>
@@ -44,7 +45,7 @@
       </div>
       <div class="modal-action flex justify-center">
         <form method="dialog">
-          <button class="btn btn-neutral">ให้คะแนน</button>
+          <button class="btn btn-primary">ให้คะแนน</button>
         </form>
       </div>
     </div>

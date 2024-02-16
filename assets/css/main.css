@@ -13,43 +13,57 @@ body {
 }
 
 h1 {
-  font-size: 24px;
+  /* text-5xl */
+  font-size: 3rem; /* 48px */
+  line-height: 1;
   font-weight: 900;
 }
 
 h2 {
-  font-size: 22px;
+  /* text-4xl */
+  font-size: 2.25rem; /* 36px */
+  line-height: 2.5rem; /* 40px */
   font-weight: 800;
 }
 
 h3 {
-  font-size: 20px;
+  /* text-3xl */
+  font-size: 1.875rem; /* 30px */
+  line-height: 2.25rem; /* 36px */
   font-weight: 700;
 }
 
 h4 {
-  font-size: 16px;
+  /* text-2xl */
+  font-size: 1.5rem; /* 24px */
+  line-height: 2rem; /* 32px */
   font-weight: 600;
 }
 
 h5 {
-  font-size: 15px;
+  /* text-xl */
+  font-size: 1.25rem; /* 20px */
+  line-height: 1.75rem; /* 28px */
   font-weight: 500;
 }
 
 h6 {
-  font-size: 14px;
+  /* text-lg */
+  font-size: 1.125rem; /* 18px */
+  line-height: 1.75rem; /* 28px */
   font-weight: 400;
 }
 
 p {
-  font-size: 14px;
-  font-weight: 300;
+  /* text-base */
+  font-size: 1rem; /* 16px */
+  line-height: 1.5rem; /* 24px */
 }
 
 span {
-  font-size: 13px;
-  font-weight: 200;
+  /* text-sm */
+  font-size: 0.875rem; /* 14px */
+  line-height: 1.25rem; /* 20px */
 }
 
 .page-enter-active,

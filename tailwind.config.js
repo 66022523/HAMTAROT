@@ -1,4 +1,5 @@
 const colors = require("tailwindcss/colors");
+const hamColors = require("./assets/json/colors.json");
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -6,19 +7,25 @@ export default {
   theme: {
     colors: {
       ...colors,
-      black: "#332941",
-      navy: "#3B3486",
-      purple: "#864AF9",
-      yellow: "#F8E559",
-      dark: "#3D3B40",
-      blue: "#525CEB",
-      gray: "#BFCFE7",
-      pink: "#F8EDFF",
+      ...hamColors,
     },
     extend: {},
   },
   plugins: [require("daisyui")],
   daisyui: {
-    darkTheme: [],
+    themes: [
+      {
+        hamtarot: {
+          primary: hamColors["minsk"].DEFAULT,
+          warning: hamColors.portica.DEFAULT,
+          secondary: hamColors["electric-violet"].DEFAULT,
+          accent: hamColors["royal-blue"].DEFAULT,
+          neutral: hamColors["ship-gray"].DEFAULT,
+          "base-100": hamColors.blackcurrant.DEFAULT,
+          "base-content": hamColors["blue-chalk"].DEFAULT,
+        },
+      },
+    ],
+    darkTheme: "hamtarot",
   },
 };

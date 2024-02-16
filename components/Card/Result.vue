@@ -1,8 +1,8 @@
 <template>
   <div
-    class="bg-watermark card relative bg-black overflow-hidden shadow-xl rounded-badge mb-8"
+    class="bg-watermark card bg-blackcurrant overflow-hidden shadow-xl rounded-badge mb-8"
   >
-    <div class="card-body">
+    <div class="card-body relative">
       <CardTarot
         class="mb-4 mx-auto"
         flip

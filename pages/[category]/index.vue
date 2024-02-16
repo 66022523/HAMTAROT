@@ -1,15 +1,20 @@
 <script setup>
 import data from "~/assets/json/data.json";
-
-const route = useRouter();
-const query = route.currentRoute.value.query;
-const categoryQuery = query.category;
 </script>
 
 <template>
-  <section class="container mx-auto text-pink text-center">
-    <h2 class="text-yellow">คลิกเลือกไพ่ 1 ใบ แล้วคลิกปุ่ม 'ทำนาย'</h2>
-    <h3 class="mb-8">หมวดหมู่ {{ data.category[categoryQuery].title }}</h3>
+  <section
+    v-if="
+      $route.params &&
+      $route.params.category &&
+      Object.keys(data.category).includes($route.params.category)
+    "
+    class="container mx-auto text-center"
+  >
+    <h2 class="text-portica">คลิกเลือกไพ่ 1 ใบ แล้วคลิกปุ่ม 'ทำนาย'</h2>
+    <h3 class="mb-8">
+      หมวดหมู่ {{ data.category[$route.params.category].title }}
+    </h3>
     <div class="grid grid-cols-[repeat(auto-fill,3%)] my-12 ml-[10%]">
       <CardTarot
         v-for="index in data.tarot.length"
@@ -35,17 +40,23 @@ const categoryQuery = query.category;
       :to="
         active
           ? {
-              path: '/pick/result',
-              query: {
-                category: categoryQuery,
-                card: Math.floor(Math.random() * active),
-              },
+              path:
+                '/' +
+                $route.params.category +
+                '/' +
+                (Math.floor(Math.random() * active) + 1),
             }
           : null
       "
     >
       ทำนาย
     </NuxtLink>
+  </section>
+  <section v-else class="container mx-auto text-center">
+    <i class="fi fi-rr-loading text-6xl text-portica"></i>
+    <h2 class="text-portica">ไม่พบหมวดหมู่ '{{ $route.params.category }}'</h2>
+    <p class="mb-8">ดูเหมือนว่าคุณจะดวงไม่ดีมาเจอหน้าว่างเปล่านี้นะ</p>
+    <NuxtLink class="btn btn-primary" to="/">กลับไปหน้าหลัก</NuxtLink>
   </section>
 </template>
 
