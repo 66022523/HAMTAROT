@@ -1,3 +1,19 @@
+<script setup>
+const username = ref();
+const password = ref();
+
+const submit = (event) => {
+  const router = useRouter();
+
+  const username = event.target[0].value;
+  const password = event.target[1].value;
+
+  console.log("Logging in with:", username, password);
+
+  router.push({ path: "/" });
+};
+</script>
+
 <template>
   <section class="container mx-auto flex justify-center items-center">
     <div
@@ -102,19 +118,3 @@
     </div>
   </section>
 </template>
-
-<script setup>
-const username = ref();
-const password = ref();
-
-const submit = (event) => {
-  const router = useRouter();
-
-  const username = event.target[0].value;
-  const password = event.target[1].value;
-
-  console.log("Logging in with:", username, password);
-
-  router.push({ path: "/" });
-};
-</script>

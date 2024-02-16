@@ -1,3 +1,26 @@
+<script setup>
+const username = ref();
+const password = ref();
+const verifyPassword = ref();
+
+const submit = (event) => {
+  const router = useRouter();
+
+  const username = event.target[0].value;
+  const password = event.target[1].value;
+  const verifyPassword = event.target[2].value;
+
+  console.log(
+    "Created account and logging in with:",
+    username,
+    password,
+    verifyPassword
+  );
+
+  router.push({ path: "/" });
+};
+</script>
+
 <template>
   <section class="container mx-auto flex justify-center items-center">
     <div
@@ -129,26 +152,3 @@
     </div>
   </section>
 </template>
-
-<script setup>
-const username = ref();
-const password = ref();
-const verifyPassword = ref();
-
-const submit = (event) => {
-  const router = useRouter();
-
-  const username = event.target[0].value;
-  const password = event.target[1].value;
-  const verifyPassword = event.target[2].value;
-
-  console.log(
-    "Created account and logging in with:",
-    username,
-    password,
-    verifyPassword,
-  );
-
-  router.push({ path: "/" });
-};
-</script>

@@ -1,3 +1,17 @@
+<script setup>
+const username = ref();
+
+const submit = (event) => {
+  const router = useRouter();
+
+  const username = event.target[0].value;
+
+  console.log("Sended reset password email to:", username);
+
+  router.push({ path: "/account" });
+};
+</script>
+
 <template>
   <section class="container mx-auto flex justify-center items-center">
     <div
@@ -82,17 +96,3 @@
     </div>
   </section>
 </template>
-
-<script setup>
-const username = ref();
-
-const submit = (event) => {
-  const router = useRouter();
-
-  const username = event.target[0].value;
-
-  console.log("Sended reset password email to:", username);
-
-  router.push({ path: "/account" });
-};
-</script>
