@@ -22,8 +22,8 @@ const goBack = (params) => {
         <img
           src="/favicon.ico"
           alt="Hamtarot Favicon"
-          width="50px"
-          height="50px"
+          width="80px"
+          height="80px"
         />
       </NuxtLink>
     </div>
