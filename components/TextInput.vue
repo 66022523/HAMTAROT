@@ -64,8 +64,8 @@ defineProps({
         :type="type"
         :placeholder="placeholder"
         :value="value"
-        :min="min"
-        :max="max"
+        :minlength="min"
+        :maxlength="max"
       />
     </div>
     <div v-if="hintBottomLeft || hintBottomRight" class="label">
