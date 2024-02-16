@@ -9,7 +9,7 @@ const goBack = (params) => {
 </script>
 
 <template>
-  <nav class="navbar rounded-xl bg-[#3B348620] p-3 shadow-xl backdrop-blur">
+  <nav class="navbar rounded-xl bg-[#3B348620] p-4 shadow-xl backdrop-blur">
     <div class="navbar-start gap-2">
       <button
         v-if="$route.path !== '/'"
