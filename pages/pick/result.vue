@@ -1,17 +1,30 @@
+<script setup>
+import data from "/data.json";
+
+const route = useRouter();
+const query = route.currentRoute.value.query;
+const categoryQuery = query.category;
+const cardQuery = query.card;
+
+useSeoMeta({
+  title: `Hamtarot - ${data.tarot[cardQuery].name.split(" ")[0]}`,
+});
+</script>
+
 <template>
   <section class="container mx-auto text-pink">
     <Rating />
     <div class="text-center mb-8">
       <h2 class="text-yellow">ผลการทำนาย</h2>
-      <p>หมวดหมู่ {{ cards.category[categoryQuery].title }}</p>
+      <p>หมวดหมู่ {{ data.category[categoryQuery].title }}</p>
     </div>
     <CardResult
       :number="cardQuery"
-      :image="cards.tarot[cardQuery].image"
-      :title="cards.tarot[cardQuery].alias"
-      :name="cards.tarot[cardQuery].name + ` (${cards.tarot[cardQuery].alias})`"
-      :info="cards.tarot[cardQuery].info"
-      :content="cards.category[categoryQuery].content[cardQuery]"
+      :image="data.tarot[cardQuery].image"
+      :title="data.tarot[cardQuery].alias"
+      :name="data.tarot[cardQuery].name + ` (${data.tarot[cardQuery].alias})`"
+      :info="data.tarot[cardQuery].info"
+      :content="data.category[categoryQuery].content[cardQuery]"
     />
     <div class="flex gap-2 justify-center mb-8">
       <Button
@@ -30,13 +43,13 @@
           </p>
           <CardResult
             :number="cardQuery"
-            :image="cards.tarot[cardQuery].image"
-            :title="cards.tarot[cardQuery].alias"
+            :image="data.tarot[cardQuery].image"
+            :title="data.tarot[cardQuery].alias"
             :name="
-              cards.tarot[cardQuery].name + ` (${cards.tarot[cardQuery].alias})`
+              data.tarot[cardQuery].name + ` (${data.tarot[cardQuery].alias})`
             "
-            :info="cards.tarot[cardQuery].info"
-            :content="cards.category[categoryQuery].content[cardQuery]"
+            :info="data.tarot[cardQuery].info"
+            :content="data.category[categoryQuery].content[cardQuery]"
           />
           <div class="modal-action">
             <form method="dialog">
@@ -61,16 +74,3 @@
     </div>
   </section>
 </template>
-
-<script setup>
-import cards from "~/content/cards.json";
-
-const route = useRouter();
-const query = route.currentRoute.value.query;
-const categoryQuery = query.category;
-const cardQuery = query.card;
-
-useSeoMeta({
-  title: `Hamtarot - ${cards.tarot[cardQuery].name.split(" ")[0]}`,
-});
-</script>

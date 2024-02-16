@@ -1,3 +1,9 @@
+<script setup>
+import data from "/data.json";
+
+const categories = Object.keys(data.category);
+</script>
+
 <template>
   <section class="container mx-auto text-pink text-center">
     <h2 class="text-yellow mb-8">เลือกหมวดหมู่ที่ต้องการ</h2>
@@ -15,17 +21,11 @@
             class="mb-8 transition hover:bg-purple"
             i-assets
             assets-class="text-black text-5xl p-3 inline-block leading-[0]"
-            :icon="cards.category[categories[category - 1]].icon"
+            :icon="data.category[categories[category - 1]].icon"
           />
         </div>
-        <h3>{{ cards.category[categories[category - 1]].title }}</h3>
+        <h3>{{ data.category[categories[category - 1]].title }}</h3>
       </NuxtLink>
     </div>
   </section>
 </template>
-
-<script setup>
-import cards from "~/content/cards.json";
-
-const categories = Object.keys(cards.category);
-</script>
