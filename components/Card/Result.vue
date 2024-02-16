@@ -1,10 +1,10 @@
 <template>
   <div
-    class="bg-watermark card bg-blackcurrant overflow-hidden shadow-xl rounded-badge mb-8"
+    class="card mb-8 overflow-hidden rounded-badge bg-blackcurrant shadow-xl before:absolute before:left-0 before:top-0 before:block before:size-full before:bg-[url('/favicon.ico')] before:bg-[length:100px_100px] before:bg-[50px_50px] before:bg-repeat before:opacity-5 before:content-['']"
   >
     <div class="card-body relative">
       <CardTarot
-        class="mb-4 mx-auto"
+        class="mx-auto mb-4"
         flip
         :number="number"
         :image="image"
@@ -47,20 +47,3 @@ defineProps({
   },
 });
 </script>
-
-<style scoped>
-.bg-watermark::before {
-  content: "";
-  display: block;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  background-image: url("/favicon.ico");
-  background-size: 100px 100px;
-  background-position: 50px 50px;
-  background-repeat: repeat;
-  opacity: 0.05;
-}
-</style>
