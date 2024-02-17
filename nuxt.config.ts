@@ -33,7 +33,6 @@ export default defineNuxtConfig({
     viewTransition: true,
   },
   modules: ["@nuxtjs/google-fonts", "@nuxtjs/tailwindcss"],
-  ssr: false,
   googleFonts: {
     families: {
       Kanit: {
