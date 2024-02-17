@@ -13,12 +13,12 @@ const submit = (event) => {
 </script>
 
 <template>
-  <section class="container mx-auto flex justify-center items-center">
+  <section class="container mx-auto flex items-center justify-center">
     <div
-      class="card w-fit bg-minsk border-blue-chalk border-[15px] rounded-badge shadow-xl"
+      class="card w-fit rounded-badge border-[15px] border-blue-chalk bg-minsk shadow-xl"
     >
       <div class="card-body text-center">
-        <h2 class="text-portica mb-8">ลืมรหัสผ่าน</h2>
+        <h2 class="mb-8 text-portica">ลืมรหัสผ่าน</h2>
         <form @submit.prevent="submit">
           <TextInput
             v-model="username"
@@ -31,7 +31,7 @@ const submit = (event) => {
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 16 16"
               fill="currentColor"
-              class="w-4 h-4 opacity-70"
+              class="h-4 w-4 opacity-70"
             >
               <path
                 d="M2.5 3A1.5 1.5 0 0 0 1 4.5v.793c.026.009.051.02.076.032L7.674 8.51c.206.1.446.1.652 0l6.598-3.185A.755.755 0 0 1 15 5.293V4.5A1.5 1.5 0 0 0 13.5 3h-11Z"
@@ -41,7 +41,7 @@ const submit = (event) => {
               />
             </svg>
           </TextInput>
-          <div class="flex justify-between mb-4">
+          <div class="mb-4 flex justify-between">
             <NuxtLink to="/account/login">เข้าสู่ระบบ</NuxtLink>
             <NuxtLink to="/account/register">ลงทะเบียน</NuxtLink>
           </div>
@@ -54,18 +54,17 @@ const submit = (event) => {
           </Button>
         </form>
         <div class="divider">หรือ</div>
-        <div class="flex justify-between items-center">
+        <div class="flex items-center justify-between">
           <NuxtLink
             class="btn btn-circle btn-link"
             href="https://accounts.google.com/"
             target="_blank"
           >
-            <NuxtImg
+            <img
               class="rounded-full"
               src="/assets/icons/google.png"
               alt=""
               width="40px"
-              preload
             />
           </NuxtLink>
           <NuxtLink
@@ -73,12 +72,11 @@ const submit = (event) => {
             href="https://www.facebook.com/login.php/"
             target="_blank"
           >
-            <NuxtImg
+            <img
               class="rounded-full"
               src="/assets/icons/facebook.png"
               alt=""
               width="40px"
-              preload
             />
           </NuxtLink>
           <NuxtLink
@@ -86,12 +84,11 @@ const submit = (event) => {
             href="https://access.line.me/oauth2/v2.1/login?returnUri=%2Foauth2%2Fv2.1%2Fauthorize%2Fconsent&   loginChannelId=1521958360&loginState=CLn4LYQoulJIgLFHIw15nw#/"
             target="_blank"
           >
-            <NuxtImg
+            <img
               class="rounded-full"
               src="/assets/icons/line.png"
               alt=""
               width="40px"
-              preload
             />
           </NuxtLink>
         </div>

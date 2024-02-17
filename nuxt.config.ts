@@ -12,7 +12,12 @@ export default defineNuxtConfig({
           charset: "utf-8",
         },
       ],
-      link: [],
+      link: [
+        { rel: "preload", href: "/assets/images/background.jpg", as: "image" },
+        { rel: "preload", href: "/assets/icons/facebook.png", as: "image" },
+        { rel: "preload", href: "/assets/icons/line.png", as: "image" },
+        { rel: "preload", href: "/assets/icons/google.png", as: "image" },
+      ],
       style: [],
       script: [],
       noscript: [],
@@ -27,7 +32,7 @@ export default defineNuxtConfig({
   experimental: {
     viewTransition: true,
   },
-  modules: ["@nuxt/image", "@nuxtjs/google-fonts", "@nuxtjs/tailwindcss"],
+  modules: ["@nuxtjs/google-fonts", "@nuxtjs/tailwindcss"],
   ssr: false,
   googleFonts: {
     families: {
