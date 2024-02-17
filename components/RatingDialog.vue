@@ -1,12 +1,11 @@
 <template>
   <dialog id="ratingModal" class="modal">
-    <div class="modal-box text-center space-y-4">
-      <NuxtImg
+    <div class="modal-box space-y-4 text-center">
+      <img
         class="mx-auto"
         src="/assets/icons/rating.png"
         alt="Star Icon"
         width="100px"
-        preload
       />
       <h1 class="text-lg">
         <b>คุณพึงพอใจกับเว็บไซต์เรามากแค่ไหน?</b>
