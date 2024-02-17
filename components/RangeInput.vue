@@ -14,10 +14,6 @@ defineProps({
     type: String,
     default: "",
   },
-  value: {
-    type: String,
-    default: "",
-  },
   step: {
     type: String,
     default: "",
@@ -59,7 +55,6 @@ defineProps({
         :class="inputClass"
         :min="min"
         :max="max"
-        :value="value"
         :step="step"
       />
       <div class="flex w-full justify-between px-2 text-xs">

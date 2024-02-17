@@ -142,7 +142,6 @@ const saveAsImage = async (extensions = "png", quality = 1) => {
                 v-model="ranged"
                 min="0"
                 max="100"
-                :value="ranged"
                 step="25"
                 hint-top-left="คุณภาพ"
               >
