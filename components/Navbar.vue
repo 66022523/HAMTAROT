@@ -93,13 +93,13 @@ const goBack = (params) => {
         >
           <li class="menu-title">จัดการบัญชี</li>
           <li>
-            <NuxtLink to="/account/login"> ลงชื่อเข้าใช้ </NuxtLink>
+            <NuxtLink to="/account/login">ลงชื่อเข้าใช้</NuxtLink>
           </li>
           <li>
-            <NuxtLink to="/account/register"> สมัครบัญชีใหม่ </NuxtLink>
+            <NuxtLink to="/account/register">สมัครบัญชีใหม่</NuxtLink>
           </li>
           <li>
-            <NuxtLink to="/account/forget"> ลืมรหัสผ่าน </NuxtLink>
+            <NuxtLink to="/account/forget">ลืมรหัสผ่าน</NuxtLink>
           </li>
         </ul>
       </div>
