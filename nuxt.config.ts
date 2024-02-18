@@ -14,9 +14,6 @@ export default defineNuxtConfig({
       ],
       link: [
         { rel: "preload", href: "/assets/images/background.jpg", as: "image" },
-        { rel: "preload", href: "/assets/icons/facebook.png", as: "image" },
-        { rel: "preload", href: "/assets/icons/line.png", as: "image" },
-        { rel: "preload", href: "/assets/icons/google.png", as: "image" },
       ],
       style: [],
       script: [],
