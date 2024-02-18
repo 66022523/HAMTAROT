@@ -45,7 +45,7 @@ const sendNotification = (event) => {
             <InputText
               v-model="filename"
               class="w-full"
-              placeholder="https://hamtarot.com/favicon.ico"
+              :placeholder="`${location.origin}/favicon.ico`"
               hint-top-left="ลิงค์รูปภาพ (ไม่จำเป็น)"
             >
               <i class="fi fi-rr-add-image leading-[0]"></i>
