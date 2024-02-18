@@ -10,6 +10,14 @@ const submit = (event) => {
 
   router.push({ path: "/account" });
 };
+
+useHead({
+  link: [
+    { rel: "preload", as: "image", href: "/assets/icons/facebook.png" },
+    { rel: "preload", as: "image", href: "/assets/icons/line.png" },
+    { rel: "preload", as: "image", href: "/assets/icons/google.png" },
+  ],
+});
 </script>
 
 <template>
@@ -20,12 +28,11 @@ const submit = (event) => {
       <div class="card-body text-center">
         <h2 class="mb-8 text-portica">ลืมรหัสผ่าน</h2>
         <form @submit.prevent="submit">
-          <TextInput
+          <InputText
             v-model="username"
             class="mb-2"
             type="email"
-            placeholder="อีเมล/ชื่อผู้ใช้"
-            :value="username"
+            placeholder="อีเมล"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -40,7 +47,7 @@ const submit = (event) => {
                 d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z"
               />
             </svg>
-          </TextInput>
+          </InputText>
           <div class="mb-4 flex justify-between">
             <NuxtLink to="/account/login">เข้าสู่ระบบ</NuxtLink>
             <NuxtLink to="/account/register">ลงทะเบียน</NuxtLink>

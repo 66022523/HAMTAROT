@@ -10,8 +10,20 @@ const submit = (event) => {
 
   console.log("Logging in with:", username, password);
 
-  router.push({ path: "/" });
+  if (username === "admin" && password === "1234abcd") {
+    router.replace({ path: "/dashboard/statistics" });
+  } else {
+    router.replace({ path: "/" });
+  }
 };
+
+useHead({
+  link: [
+    { rel: "preload", as: "image", href: "/assets/icons/facebook.png" },
+    { rel: "preload", as: "image", href: "/assets/icons/line.png" },
+    { rel: "preload", as: "image", href: "/assets/icons/google.png" },
+  ],
+});
 </script>
 
 <template>
@@ -22,12 +34,10 @@ const submit = (event) => {
       <div class="card-body text-center">
         <h2 class="mb-8 text-portica">เข้าสู่ระบบ</h2>
         <form @submit.prevent="submit">
-          <TextInput
+          <InputText
             v-model="username"
             class="mb-2"
-            type="email"
             placeholder="อีเมล/ชื่อผู้ใช้"
-            :value="username"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -42,13 +52,12 @@ const submit = (event) => {
                 d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z"
               />
             </svg>
-          </TextInput>
-          <TextInput
+          </InputText>
+          <InputText
             v-model="password"
             class="mb-2"
             type="password"
             placeholder="รหัสผ่าน"
-            :value="password"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -62,7 +71,7 @@ const submit = (event) => {
                 clip-rule="evenodd"
               />
             </svg>
-          </TextInput>
+          </InputText>
           <div class="mb-4 flex justify-between">
             <NuxtLink to="/account/register">ลงทะเบียน</NuxtLink>
             <NuxtLink to="/account/forget">ลืมรหัสผ่าน</NuxtLink>
