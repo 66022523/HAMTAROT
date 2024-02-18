@@ -2,21 +2,17 @@
 const model = defineModel({ type: String });
 
 defineProps({
-  inputClass: {
+  selectClass: {
     type: String,
     default: "",
   },
-  min: {
+  title: {
     type: String,
     default: "",
   },
-  max: {
-    type: String,
-    default: "",
-  },
-  step: {
-    type: String,
-    default: "",
+  required: {
+    type: Boolean,
+    default: false,
   },
   hintTopLeft: {
     type: String,
@@ -38,7 +34,7 @@ defineProps({
 </script>
 
 <template>
-  <label class="form-control w-full">
+  <label class="form-control">
     <div v-if="hintTopLeft || hintTopRight" class="label">
       <span v-if="hintTopLeft" class="label-text">
         {{ hintTopLeft }}
@@ -47,20 +43,15 @@ defineProps({
         {{ hintTopRight }}
       </span>
     </div>
-    <div>
-      <input
-        v-model="model"
-        type="range"
-        class="range"
-        :class="inputClass"
-        :min="min"
-        :max="max"
-        :step="step"
-      />
-      <div class="flex w-full justify-between px-2 text-xs">
-        <slot />
-      </div>
-    </div>
+    <select
+      v-model="model"
+      class="select select-bordered"
+      :class="selectClass"
+      :required="required"
+    >
+      <option v-if="title" disabled selected>{{ title }}</option>
+      <slot />
+    </select>
     <div v-if="hintBottomLeft || hintBottomRight" class="label">
       <span v-if="hintBottomLeft" class="label-text-alt">
         {{ hintBottomLeft }}

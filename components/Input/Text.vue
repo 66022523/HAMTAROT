@@ -4,7 +4,7 @@ const model = defineModel({ type: String });
 defineProps({
   inputClass: {
     type: String,
-    default: "",
+    default: null,
   },
   type: {
     type: String,
@@ -12,41 +12,49 @@ defineProps({
   },
   placeholder: {
     type: String,
-    default: "",
+    default: null,
   },
-  value: {
+  minLength: {
     type: String,
-    default: "",
+    default: null,
   },
-  min: {
+  maxLength: {
     type: String,
-    default: "",
+    default: null,
   },
-  max: {
+  pattern: {
     type: String,
-    default: "",
+    default: null,
+  },
+  required: {
+    type: Boolean,
+    default: false,
+  },
+  disabled: {
+    type: Boolean,
+    default: false,
   },
   hintTopLeft: {
     type: String,
-    default: "",
+    default: null,
   },
   hintTopRight: {
     type: String,
-    default: "",
+    default: null,
   },
   hintBottomLeft: {
     type: String,
-    default: "",
+    default: null,
   },
   hintBottomRight: {
     type: String,
-    default: "",
+    default: null,
   },
 });
 </script>
 
 <template>
-  <label class="form-control w-full">
+  <label class="form-control">
     <div v-if="hintTopLeft || hintTopRight" class="label">
       <span v-if="hintTopLeft" class="label-text">
         {{ hintTopLeft }}
@@ -55,19 +63,21 @@ defineProps({
         {{ hintTopRight }}
       </span>
     </div>
-    <div class="input input-bordered flex items-center gap-2">
+    <label class="input input-bordered flex items-center" :disabled="disabled">
       <slot />
       <input
         v-model="model"
-        class="grow bg-blackcurrant"
+        class="input grow border-none bg-transparent"
         :class="inputClass"
         :type="type"
         :placeholder="placeholder"
-        :value="value"
-        :minlength="min"
-        :maxlength="max"
+        :minlength="minLength"
+        :maxlength="maxLength"
+        :pattern="pattern"
+        :required="required"
+        :disabled="disabled"
       />
-    </div>
+    </label>
     <div v-if="hintBottomLeft || hintBottomRight" class="label">
       <span v-if="hintBottomLeft" class="label-text-alt">
         {{ hintBottomLeft }}
