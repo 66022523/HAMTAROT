@@ -31,6 +31,9 @@ export default defineNuxtConfig({
     viewTransition: true,
   },
   modules: ["@nuxtjs/google-fonts", "@nuxtjs/tailwindcss"],
+  nitro: {
+    preset: "github-pages",
+  },
   googleFonts: {
     families: {
       Kanit: {
