@@ -1,5 +1,22 @@
 <script setup>
 import data from "~/assets/json/data.json";
+
+const route = useRoute();
+const params = route.params;
+
+if (
+  params &&
+  params.category &&
+  Object.keys(data.category).includes(params.category)
+) {
+  useSeoMeta({
+    title: `Hamtarot - ${data.category[params.category].title}`,
+  });
+} else {
+  useSeoMeta({
+    title: "Hamtarot - ไม่พบหมวดหมู่นี้",
+  });
+}
 </script>
 
 <template>
