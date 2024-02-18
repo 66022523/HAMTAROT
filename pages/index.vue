@@ -6,13 +6,13 @@ const categories = Object.keys(data.category);
 
 <template>
   <section class="container mx-auto text-center">
-    <h2 class="text-portica mb-8">เลือกหมวดหมู่ที่ต้องการ</h2>
-    <div class="flex flex-wrap gap-8 justify-center items-center">
+    <h2 class="mb-8 text-portica">เลือกหมวดหมู่ที่ต้องการ</h2>
+    <div class="flex flex-wrap items-center justify-center gap-8">
       <NuxtLink
         v-for="category in categories.length"
         :key="category"
-        :to="{ path: '/' + categories[category - 1] }"
-        class="basis-1/4 flex flex-col justify-center items-center transition hover:scale-105 hover:underline"
+        :to="`/predict/${categories[category - 1]}`"
+        class="flex basis-1/4 flex-col items-center justify-center transition hover:scale-105 hover:underline"
       >
         <div class="stack">
           <CardTarot
