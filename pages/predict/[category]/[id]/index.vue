@@ -2,35 +2,6 @@
 import { toPng, toJpeg, toSvg } from "html-to-image";
 import data from "~/assets/json/data.json";
 
-const route = useRoute();
-const params = route.params;
-
-const update = () => {
-  if (!params) {
-    if (
-      !params.category ||
-      !Object.keys(data.category).includes(params.category)
-    )
-      return useSeoMeta({
-        title: "Hamtarot - หมวดหมู่ไม่ถูกต้อง",
-      });
-    if (
-      !params.id &&
-      typeof parseInt(params.id) !== "number" &&
-      parseInt(params.id) < 0 &&
-      parseInt(params.id) >= Object.keys(data.tarot).length
-    )
-      return useSeoMeta({
-        title: "Hamtarot - ไม่พบการ์ดนี้",
-      });
-  }
-
-  useSeoMeta({
-    title: `Hamtarot - ${data.tarot[parseInt(params.id) - 1].name.split(" ")[0]}`,
-  });
-};
-update();
-
 const selected = ref("png");
 const options = ref([
   { text: "PNG", value: "png" },
@@ -38,12 +9,42 @@ const options = ref([
   { text: "JPEG", value: "jpeg" },
 ]);
 const ranged = ref("100");
-const isDownloading = ref(false);
+const isLoading = ref(false);
 
-const saveAsImage = async (extensions = "png", quality = 1) => {
-  isDownloading.value = true;
-  let dataURL = "";
-  const name = data.tarot[parseInt(params.id) - 1].alias
+const route = useRoute();
+const params = route.params;
+
+if (
+  !params &&
+  !params.category &&
+  !Object.keys(data.category).includes(params.category)
+) {
+  useSeoMeta({
+    title: "Hamtarot - ไม่พบหมวดหมู่นี้",
+  });
+}
+if (
+  params &&
+  params.id &&
+  params.category &&
+  Object.keys(data.category).includes(params.category) &&
+  typeof parseInt(params.id) === "number" &&
+  parseInt(params.id) > 0 &&
+  parseInt(params.id) <= Object.keys(data.tarot).length
+) {
+  useSeoMeta({
+    title: `Hamtarot - ${data.tarot[parseInt(params.id) - 1].name.split(" ")[0]}`,
+  });
+} else {
+  useSeoMeta({
+    title: "Hamtarot - ไม่พบการ์ดนี้",
+  });
+}
+
+const saveAsImage = async (extensions = "png", quality = 1, share = false) => {
+  isLoading.value = true;
+  let dataURL;
+  const id = data.tarot[parseInt(params.id) - 1].alias
     .toLowerCase()
     .replaceAll(" ", "-");
   const link = document.createElement("a");
@@ -55,10 +56,37 @@ const saveAsImage = async (extensions = "png", quality = 1) => {
   if (extensions === "jpeg")
     dataURL = await toJpeg(element, { quality: parseInt(quality) });
   if (dataURL) {
-    link.download = `${name}.${extensions}`;
-    link.href = dataURL;
-    link.click();
-    isDownloading.value = false;
+    if (share) {
+      const shareFile = new File([dataURL], `${id}.png`, {
+        type: "image/png",
+        lastModified: Date.now(),
+      });
+      const shareData = {
+        title: "Hamtarot",
+        text: "ดูดวงที่ไหนก็ได้ที่ Hamtarot",
+        url: location.href,
+        files: [shareFile],
+      };
+
+      try {
+        if (!navigator || !navigator.share || !navigator.canShare)
+          alert("เบราว์เซอร์ของคุณไม่รอบรับฟีเจอร์การแชร์เนื้อหา");
+        else if (!navigator.canShare(shareData))
+          alert(
+            'ขออภัยเราไม่สามารถแชร์เนื้อหาบางอย่างได้ในขณะนี้ หากมีปัญหาใดๆ กรุณาแจ้งให้เราทราบผ่านป่ม "?"',
+          );
+        else {
+          await navigator.share(shareData);
+        }
+      } catch (error) {
+        alert(`เกิดข้อผิดพลาดขณะกำลังแชร์เนื้อหา:\n${error}`);
+      }
+    } else {
+      link.download = `${id}.${extensions}`;
+      link.href = dataURL;
+      link.click();
+    }
+    isLoading.value = false;
   }
 };
 </script>
@@ -158,11 +186,11 @@ const saveAsImage = async (extensions = "png", quality = 1) => {
           >
             <Button
               class="btn-warning"
-              :disabled="selected.value"
+              :disabled="selected.value || isLoading"
               @click="saveAsImage(selected, ranged)"
             >
               <span
-                v-if="isDownloading"
+                v-if="isLoading"
                 class="loading loading-spinner loading-md"
               ></span>
               บันทึกภาพ
@@ -179,8 +207,13 @@ const saveAsImage = async (extensions = "png", quality = 1) => {
       <Button
         class="btn-outline btn-primary"
         type="button"
-        onclick="navigator.share({ url: '/' })"
+        :disabled="isLoading"
+        @click="saveAsImage('png', 1, true)"
       >
+        <span
+          v-if="isLoading"
+          class="loading loading-spinner loading-md"
+        ></span>
         แชร์รูปภาพ
       </Button>
     </div>
@@ -192,12 +225,24 @@ const saveAsImage = async (extensions = "png", quality = 1) => {
   </section>
   <section v-else class="container mx-auto text-center">
     <i class="fi fi-rr-loading text-6xl text-portica"></i>
-    <h2 class="text-portica">ไม่พบการ์ดดังกล่าว</h2>
-    <p class="mb-8">
-      คุณอาจจะดวงไม่ดีมาเจอการ์ด
-      <br />
-      <b>'THE EMPTY' (เทพแห่งความว่างเปล่า)!</b>
-    </p>
+    <div
+      v-if="
+        !$route.params ||
+        !$route.params.category ||
+        !Object.keys(data.category).includes($route.params.category)
+      "
+    >
+      <h2 class="text-portica">ไม่พบหมวดหมู่ '{{ $route.params.category }}'</h2>
+      <p class="mb-8">ดูเหมือนว่าคุณจะดวงไม่ดีมาเจอหน้าว่างเปล่านี้นะ</p>
+    </div>
+    <div v-else>
+      <h2 class="text-portica">ไม่พบการ์ดดังกล่าว</h2>
+      <p class="mb-8">
+        คุณอาจจะดวงไม่ดีมาเจอการ์ด
+        <br />
+        <b>'THE EMPTY' (เทพแห่งความว่างเปล่า)!</b>
+      </p>
+    </div>
     <NuxtLink class="btn btn-primary" to="/">กลับไปหน้าหลัก</NuxtLink>
   </section>
 </template>
