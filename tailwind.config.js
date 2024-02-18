@@ -16,13 +16,13 @@ export default {
     themes: [
       {
         hamtarot: {
-          primary: hamColors["minsk"].DEFAULT,
-          warning: hamColors.portica.DEFAULT,
-          secondary: hamColors["electric-violet"].DEFAULT,
+          primary: hamColors["electric-violet"].DEFAULT,
+          secondary: hamColors["minsk"].DEFAULT,
           accent: hamColors["royal-blue"].DEFAULT,
           neutral: hamColors["ship-gray"].DEFAULT,
           "base-100": hamColors.blackcurrant.DEFAULT,
           "base-content": hamColors["blue-chalk"].DEFAULT,
+          warning: hamColors.portica.DEFAULT,
         },
       },
     ],
