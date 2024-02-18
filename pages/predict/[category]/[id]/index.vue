@@ -98,7 +98,7 @@ const saveAsImage = async (extensions = "png", quality = 1) => {
     />
     <div class="mb-8 flex justify-center gap-2">
       <Button
-        class="btn-warning"
+        class="btn-primary"
         type="button"
         onclick="saveImageModal.showModal()"
       >
@@ -128,7 +128,7 @@ const saveAsImage = async (extensions = "png", quality = 1) => {
             "
           />
           <div class="grid grid-cols-2 items-center justify-stretch gap-2">
-            <SelectInput v-model="selected" hint-top-left="รูปแบบของไฟล์ภาพ">
+            <InputSelect v-model="selected" hint-top-left="รูปแบบของไฟล์ภาพ">
               <option
                 v-for="option in options"
                 :key="option"
@@ -136,9 +136,9 @@ const saveAsImage = async (extensions = "png", quality = 1) => {
               >
                 {{ option.text }}
               </option>
-            </SelectInput>
+            </InputSelect>
             <div>
-              <RangeInput
+              <InputRange
                 v-model="ranged"
                 min="0"
                 max="100"
@@ -150,14 +150,14 @@ const saveAsImage = async (extensions = "png", quality = 1) => {
                 <span>0.5</span>
                 <span>0.75</span>
                 <span>1</span>
-              </RangeInput>
+              </InputRange>
             </div>
           </div>
           <div
             class="modal-action grid grid-cols-2 items-center justify-stretch gap-2"
           >
             <Button
-              class="btn-primary"
+              class="btn-warning"
               :disabled="selected.value"
               @click="saveAsImage(selected, ranged)"
             >
@@ -168,7 +168,7 @@ const saveAsImage = async (extensions = "png", quality = 1) => {
               บันทึกภาพ
             </Button>
             <form method="dialog">
-              <Button class="btn-outline btn-primary w-full">ปิด</Button>
+              <Button class="btn-outline btn-warning w-full">ปิด</Button>
             </form>
           </div>
         </div>
@@ -177,7 +177,7 @@ const saveAsImage = async (extensions = "png", quality = 1) => {
         </form>
       </dialog>
       <Button
-        class="btn-outline btn-warning"
+        class="btn-outline btn-primary"
         type="button"
         onclick="navigator.share({ url: '/' })"
       >

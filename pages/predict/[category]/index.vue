@@ -15,7 +15,7 @@ import data from "~/assets/json/data.json";
     <h3 class="mb-8">
       หมวดหมู่ {{ data.category[$route.params.category].title }}
     </h3>
-    <div class="grid grid-cols-[repeat(auto-fill,3%)] my-12 ml-[10%]">
+    <div class="my-12 ml-[10%] grid grid-cols-[repeat(auto-fill,3%)]">
       <CardTarot
         v-for="index in data.tarot.length"
         :key="index"
@@ -40,13 +40,7 @@ import data from "~/assets/json/data.json";
       :disabled="active ? null : 'disabled'"
       :to="
         active
-          ? {
-              path:
-                '/' +
-                $route.params.category +
-                '/' +
-                (Math.floor(Math.random() * active) + 1),
-            }
+          ? `/predict/${$route.params.category}/${Math.floor(Math.random() * active) + 1}`
           : null
       "
     >
