@@ -1,14 +1,12 @@
 <script setup>
 const username = ref();
 
-const submit = (event) => {
-  const router = useRouter();
-
+const submit = async (event) => {
   const username = event.target[0].value;
 
   console.log("Sended reset password email to:", username);
 
-  router.push({ path: "/account" });
+  await navigateTo("/account");
 };
 
 useHead({

@@ -3,9 +3,7 @@ const username = ref();
 const password = ref();
 const verifyPassword = ref();
 
-const submit = (event) => {
-  const router = useRouter();
-
+const submit = async (event) => {
   const username = event.target[0].value;
   const password = event.target[1].value;
   const verifyPassword = event.target[2].value;
@@ -17,7 +15,7 @@ const submit = (event) => {
     verifyPassword,
   );
 
-  router.push({ path: "/account" });
+  await navigateTo("/account");
 };
 
 useHead({

@@ -2,18 +2,16 @@
 const username = ref();
 const password = ref();
 
-const submit = (event) => {
-  const router = useRouter();
-
+const submit = async (event) => {
   const username = event.target[0].value;
   const password = event.target[1].value;
 
   console.log("Logging in with:", username, password);
 
   if (username === "admin" && password === "1234abcd") {
-    router.replace({ path: "/dashboard/statistics" });
+    await navigateTo("/dashboard/statistics");
   } else {
-    router.replace({ path: "/" });
+    await navigateTo("/");
   }
 };
 
