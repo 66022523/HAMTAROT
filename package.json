@@ -30,6 +30,7 @@
   "dependencies": {
     "@flaticon/flaticon-uicons": "^3.1.0",
     "@vercel/analytics": "^1.2.1",
+    "@vercel/speed-insights": "^1.0.10",
     "html-to-image": "^1.11.11"
   }
 }
