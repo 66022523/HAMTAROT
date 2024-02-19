@@ -45,11 +45,13 @@ defineProps({
     default: "",
   },
 });
+
+const img = useImage();
 </script>
 
 <template>
   <div
-    class="card h-[360px] w-[250px] overflow-hidden rounded-badge border-[15px] border-blue-chalk bg-gradient-to-bl from-electric-violet to-minsk shadow-xl"
+    class="card h-[180px] w-[125px] overflow-hidden rounded-2xl border-[8px] border-blue-chalk bg-gradient-to-bl from-electric-violet to-minsk shadow-xl md:h-[360px] md:w-[250px] md:rounded-badge md:border-[15px]"
   >
     <div
       class="flex h-full w-full flex-col items-center justify-between overflow-hidden"
@@ -60,11 +62,11 @@ defineProps({
             ? 'glass'
             : null
       "
-      :style="flip ? 'background-image: url(\'' + image + '\');' : null"
+      :style="flip ? 'background-image: url(\'' + img(image) + '\');' : null"
     >
       <div
         v-if="flip"
-        class="mt-2 flex h-8 w-8 items-center justify-center rounded-full bg-blue-chalk text-blackcurrant"
+        class="mt-1 flex h-4 w-4 items-center justify-center rounded-full bg-blue-chalk text-xs text-blackcurrant md:mt-2 md:h-8 md:w-8 md:text-base"
       >
         {{ number }}
       </div>
@@ -73,20 +75,31 @@ defineProps({
         class="m-auto flex items-center justify-center rounded-full border-8 border-blue-chalk bg-blue-chalk"
       >
         <img
-          v-if="!iAssets"
+          v-if="!iAssets && icon.split('.').pop() === 'ico'"
+          class="w-[40px] md:w-[80px]"
           :class="assetsClass"
           :src="icon"
           :alt="alt"
           :width="width"
           :height="height"
         />
-        <i v-if="iAssets" :class="[assetsClass, icon]"></i>
+        <NuxtImg
+          v-else-if="!iAssets && icon.split('.').pop() !== 'ico'"
+          :class="assetsClass"
+          :src="icon"
+          :alt="alt"
+          :width="width"
+          :height="height"
+          loading="lazy"
+          placeholder
+        />
+        <i v-else :class="[assetsClass, icon]"></i>
       </div>
       <div
         v-if="flip"
-        class="flex max-w-44 items-center justify-center rounded-tl-xl rounded-tr-xl bg-blue-chalk p-2 text-blackcurrant"
+        class="max-w-22 flex items-center justify-center rounded-tl-xl rounded-tr-xl bg-blue-chalk p-1 text-blackcurrant md:max-w-44 md:p-2"
       >
-        <p class="truncate text-center">{{ title }}</p>
+        <span class="truncate text-center">{{ title }}</span>
       </div>
     </div>
   </div>

@@ -34,7 +34,7 @@ const users = [
 </script>
 
 <template>
-  <section class="container mx-auto">
+  <section class="container mx-auto px-4">
     <DashboardNavBar class="mb-8" :active-path="$route.path" />
     <div class="card rounded-xl bg-minsk shadow-xl">
       <div class="card-body">
@@ -66,7 +66,12 @@ const users = [
                 <div class="flex items-center gap-3">
                   <div class="avatar">
                     <div class="mask mask-squircle h-12 w-12">
-                      <img :src="user.image" :alt="user.username" />
+                      <NuxtImg
+                        :src="user.image"
+                        :alt="user.username"
+                        loading="lazy"
+                        placeholder
+                      />
                     </div>
                   </div>
                   <div>

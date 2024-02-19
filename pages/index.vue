@@ -5,7 +5,7 @@ const categories = Object.keys(data.category);
 </script>
 
 <template>
-  <section class="container mx-auto text-center">
+  <section class="container mx-auto px-4 text-center">
     <h2 class="mb-8 text-portica">เลือกหมวดหมู่ที่ต้องการ</h2>
     <div class="flex flex-wrap items-center justify-center gap-8">
       <NuxtLink
@@ -20,8 +20,9 @@ const categories = Object.keys(data.category);
             :key="stack"
             class="mb-8 transition hover:bg-electric-violet"
             i-assets
-            assets-class="text-blackcurrant text-5xl p-3 inline-block leading-[0]"
+            assets-class="text-blackcurrant text-2xl md:text-5xl p-1 md:p-3 inline-block leading-[0]"
             :icon="data.category[categories[category - 1]].icon"
+            :glass="stack === 1"
           />
         </div>
         <h3>{{ data.category[categories[category - 1]].title }}</h3>
