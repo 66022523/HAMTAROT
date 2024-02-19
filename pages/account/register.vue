@@ -17,18 +17,10 @@ const submit = async (event) => {
 
   await navigateTo("/account");
 };
-
-useHead({
-  link: [
-    { rel: "preload", as: "image", href: "/assets/icons/facebook.png" },
-    { rel: "preload", as: "image", href: "/assets/icons/line.png" },
-    { rel: "preload", as: "image", href: "/assets/icons/google.png" },
-  ],
-});
 </script>
 
 <template>
-  <section class="container mx-auto flex items-center justify-center">
+  <section class="container mx-auto flex items-center justify-center px-4">
     <div
       class="card w-fit rounded-badge border-[15px] border-blue-chalk bg-minsk shadow-xl"
     >
@@ -118,11 +110,12 @@ useHead({
             href="https://accounts.google.com/"
             target="_blank"
           >
-            <img
+            <NxtImg
               class="rounded-full"
               src="/assets/icons/google.png"
               alt=""
               width="40px"
+              preload
             />
           </NuxtLink>
           <NuxtLink
@@ -130,11 +123,12 @@ useHead({
             href="https://www.facebook.com/login.php/"
             target="_blank"
           >
-            <img
+            <NxtImg
               class="rounded-full"
               src="/assets/icons/facebook.png"
               alt=""
               width="40px"
+              preload
             />
           </NuxtLink>
           <NuxtLink
@@ -142,11 +136,12 @@ useHead({
             href="https://access.line.me/oauth2/v2.1/login?returnUri=%2Foauth2%2Fv2.1%2Fauthorize%2Fconsent&   loginChannelId=1521958360&loginState=CLn4LYQoulJIgLFHIw15nw#/"
             target="_blank"
           >
-            <img
+            <NxtImg
               class="rounded-full"
               src="/assets/icons/line.png"
               alt=""
               width="40px"
+              preload
             />
           </NuxtLink>
         </div>

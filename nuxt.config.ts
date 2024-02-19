@@ -13,12 +13,6 @@ export default defineNuxtConfig({
           charset: "utf-8",
         },
       ],
-      link: [
-        { rel: "preload", href: "/assets/images/background.jpg", as: "image" },
-      ],
-      style: [],
-      script: [],
-      noscript: [],
     },
     pageTransition: { name: "page", mode: "out-in" },
     layoutTransition: { name: "page", mode: "out-in" },
@@ -30,7 +24,7 @@ export default defineNuxtConfig({
   experimental: {
     viewTransition: true,
   },
-  modules: ["@nuxtjs/google-fonts", "@nuxtjs/tailwindcss"],
+  modules: ["@nuxt/image", "@nuxtjs/google-fonts", "@nuxtjs/tailwindcss"],
   nitro: {
     preset: "vercel",
   },
@@ -42,5 +36,6 @@ export default defineNuxtConfig({
       },
       "Cherry Bomb One": true,
     },
+    display: "swap",
   },
 });
