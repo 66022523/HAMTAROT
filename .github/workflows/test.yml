@@ -2,7 +2,7 @@
 #
 # To get started with Nuxt see: https://nuxtjs.org/docs/get-started/installation
 #
-name: Test deploy Nuxt site to Github
+name: Test Deploy
 
 on:
   # Runs on pushes targeting the default branch
