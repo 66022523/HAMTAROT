@@ -1,8 +1,11 @@
 <div align="center">
   <img src="./public/favicon.ico" width="100px" alt="Hamtarot Favicon" />
   <h1>HAMTAROT</h1>
-  <a href="https://github.com/66022523/HAMTAROT/actions/workflows/deploy.yml">
-    <img src="https://github.com/66022523/HAMTAROT/actions/workflows/deploy.yml/badge.svg" alt="Deploy to GitHub Pages" />
+  <a href="https://github.com/66022523/HAMTAROT/actions/workflows/test.yml">
+    <img src="https://github.com/66022523/HAMTAROT/actions/workflows/test.yml/badge.svg" alt="Test Deploy badge" />
+  </a>
+  <a href="https://github.com/66022523/HAMTAROT/deployments/Production">
+    <img src="https://img.shields.io/website-up-down-green-red/https/hamtarot.vercel.app.svg?label=Production%20Deploy" alt="Production Deploy Badge" />
   </a>
 </div>
 
