@@ -1,15 +1,13 @@
-const colors = require("tailwindcss/colors");
-const hamColors = require("./assets/json/colors.json");
+import hamColors from "./assets/json/colors.json";
 
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [],
   theme: {
-    colors: {
-      ...colors,
-      ...hamColors,
+    extend: {
+      colors: {
+        ...hamColors,
+      },
     },
-    extend: {},
   },
   plugins: [require("daisyui")],
   daisyui: {
