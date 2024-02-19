@@ -1,6 +1,9 @@
 <div align="center">
   <img src="./public/favicon.ico" width="100px" alt="Hamtarot Favicon" />
   <h1>HAMTAROT</h1>
+  <a href="https://github.com/66022523/HAMTAROT/actions/workflows/deploy.yml">
+    <img src="https://github.com/66022523/HAMTAROT/actions/workflows/deploy.yml/badge.svg" alt="Deploy to GitHub Pages" />
+  </a>
 </div>
 
 เว็บไซต์ดูดวงที่คุณสามารถดูได้ตลอดเวลาไม่ว่าที่ไหนก็ตาม ซึ่งถูกสร้างและพัฒนาขึ้นด้วยเฟรมเวิร์ค [Nuxt.js](https://nuxt.com/) และ [DaisyUI](https://daisyui.com/) สำหรับการตกแต่งเว็บไซต์
@@ -23,6 +26,13 @@
 
 ## ตั้งค่าโปรเจกต์
 
+หากเครื่องจัดการแพ็คเกจของคุณไม่ตรงกับเอกสาร คณสามารถเปลี่ยนได้จากคำนำหน้าของคำสั่ง เช่น `npm` เป็น `pnpm` ทั้งนี้เราแนะนำให้ดูข้อมูลจากเว็บไซต์ทางการสำหรับวิธีใช้งาน:
+
+- [npm](https://docs.npmjs.com/cli/)
+- [pnpm](https://pnpm.io/pnpm-cli)
+- [yarn](https://yarnpkg.com/getting-started/usage)
+- [bun](https://bun.sh/docs)
+
 1. เปิดบรรทัดคำสั่งแล้วรันคำสั่งดังนี้เพื่อโคลนโปรเจกต์:
 
 ```cmd
@@ -38,20 +48,10 @@ cd HAMTAROT
 3. ทำการติดตั้งส่วนประกอบที่จำเป็นในการพัฒนาโปรเจกต์:
 
 ```cmd
-# npm
 npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
 ```
 
-4. เปิด Visual Studio เพื่อแก้ไขโปรเจกต์
+4. เปิด Visual Studio Code เพื่อแก้ไขโปรเจกต์:
 
 ```cmd
 code .
@@ -62,17 +62,7 @@ code .
 เริ่มเปิดเซิร์ฟเวอร์ที่ http://localhost:3000:
 
 ```cmd
-# npm
 npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
 ## สร้างเว็บไซต์
@@ -80,35 +70,11 @@ bun run dev
 สร้างเว็บไซต์สำหรับการใช้งานจริงด้วยคำสั่งดังนี้:
 
 ```cmd
-# npm
-
 npm run build
-
-# pnpm
-
-pnpm run build
-
-# yarn
-
-yarn build
-
-# bun
-
-bun run build
 ```
 
 หรือดูตัวอย่างเว็บไซต์ที่สร้างไว้ด้วยคำสั่งดังนี้:
 
 ```cmd
-# npm
 npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
 ```
