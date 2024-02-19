@@ -9,7 +9,7 @@ const goBack = (params) => {
 </script>
 
 <template>
-  <nav class="navbar rounded-xl bg-[#3B348620] p-4 shadow-xl backdrop-blur">
+  <nav class="navbar bg-[#3B348620] p-4 shadow-xl backdrop-blur lg:rounded-xl">
     <div class="navbar-start gap-2">
       <button
         v-if="$route.path !== '/'"
@@ -18,7 +18,7 @@ const goBack = (params) => {
       >
         <i class="fi fi-sr-angle-small-left text-2xl leading-[0]"></i>
       </button>
-      <NuxtLink class="btn btn-circle btn-ghost" to="/">
+      <NuxtLink v-else class="btn btn-circle btn-ghost" to="/">
         <img
           src="/favicon.ico"
           alt="Hamtarot Favicon"
@@ -29,7 +29,7 @@ const goBack = (params) => {
     </div>
     <div class="navbar-center">
       <NuxtLink
-        class="btn btn-ghost text-4xl"
+        class="btn btn-ghost text-3xl"
         style="font-family: &quot;Cherry Bomb One&quot;, system-ui"
         to="/"
       >

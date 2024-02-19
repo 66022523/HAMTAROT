@@ -103,7 +103,7 @@ const saveAsImage = async (extensions = "png", quality = 1, share = false) => {
       parseInt($route.params.id) > 0 &&
       parseInt($route.params.id) <= Object.keys(data.tarot).length
     "
-    class="container mx-auto"
+    class="container mx-auto px-4"
   >
     <RatingDialog />
     <div class="mb-8 text-center">
@@ -224,7 +224,7 @@ const saveAsImage = async (extensions = "png", quality = 1, share = false) => {
       </span>
     </div>
   </section>
-  <section v-else class="container mx-auto text-center">
+  <section v-else class="container mx-auto px-4 text-center">
     <i class="fi fi-rr-loading text-6xl text-portica"></i>
     <div
       v-if="

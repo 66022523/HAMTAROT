@@ -26,18 +26,20 @@ if (
       $route.params.category &&
       Object.keys(data.category).includes($route.params.category)
     "
-    class="container mx-auto text-center"
+    class="container mx-auto px-4 text-center"
   >
     <h2 class="text-portica">คลิกเลือกไพ่ 1 ใบ แล้วคลิกปุ่ม 'ทำนาย'</h2>
     <h3 class="mb-8">
       หมวดหมู่ {{ data.category[$route.params.category].title }}
     </h3>
-    <div class="my-12 ml-[10%] grid grid-cols-[repeat(auto-fill,3%)]">
+    <div
+      class="my-12 grid grid-cols-[repeat(auto-fill,3%)] md:ml-[2%] lg:ml-[10%]"
+    >
       <CardTarot
         v-for="index in data.tarot.length"
         :key="index"
         :class="{ active: active === index }"
-        assets-class="p-2"
+        assets-class="p-1 md:p-2"
         :glass="false"
         :style="{
           transform: active === index ? 'translateY(-40px)' : null,
@@ -64,7 +66,7 @@ if (
       ทำนาย
     </NuxtLink>
   </section>
-  <section v-else class="container mx-auto text-center">
+  <section v-else class="container mx-auto px-4 text-center">
     <i class="fi fi-rr-loading text-6xl text-portica"></i>
     <h2 class="text-portica">ไม่พบหมวดหมู่ '{{ $route.params.category }}'</h2>
     <p class="mb-8">ดูเหมือนว่าคุณจะดวงไม่ดีมาเจอหน้าว่างเปล่านี้นะ</p>
