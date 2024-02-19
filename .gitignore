@@ -88,6 +88,7 @@ web_modules/
 out
 
 # Nuxt.js build / generate output
+.vercel
 .output
 .data
 .nuxt
