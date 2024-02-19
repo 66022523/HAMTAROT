@@ -15,30 +15,31 @@ const route = useRoute();
 const params = route.params;
 
 if (
-  !params &&
-  !params.category &&
-  !Object.keys(data.category).includes(params.category)
-) {
-  useSeoMeta({
-    title: "Hamtarot - ไม่พบหมวดหมู่นี้",
-  });
-}
-if (
   params &&
   params.id &&
   params.category &&
   Object.keys(data.category).includes(params.category) &&
-  typeof parseInt(params.id) === "number" &&
+  Number.isInteger(parseInt(params.id)) &&
   parseInt(params.id) > 0 &&
   parseInt(params.id) <= Object.keys(data.tarot).length
 ) {
   useSeoMeta({
-    title: `Hamtarot - ${data.tarot[parseInt(params.id) - 1].name.split(" ")[0]}`,
+    title: `Hamtarot - ${data.tarot[parseInt(params.id) - 1].alias}`,
   });
 } else {
-  useSeoMeta({
-    title: "Hamtarot - ไม่พบการ์ดนี้",
-  });
+  if (
+    !params ||
+    !params.category ||
+    !Object.keys(data.category).includes(params.category)
+  ) {
+    useSeoMeta({
+      title: "Hamtarot - ไม่พบหมวดหมู่นี้",
+    });
+  } else {
+    useSeoMeta({
+      title: "Hamtarot - ไม่พบการ์ดนี้",
+    });
+  }
 }
 
 const saveAsImage = async (extensions = "png", quality = 1, share = false) => {
@@ -98,7 +99,7 @@ const saveAsImage = async (extensions = "png", quality = 1, share = false) => {
       $route.params.id &&
       $route.params.category &&
       Object.keys(data.category).includes($route.params.category) &&
-      typeof parseInt($route.params.id) === 'number' &&
+      Number.isInteger(parseInt(params.id)) &&
       parseInt($route.params.id) > 0 &&
       parseInt($route.params.id) <= Object.keys(data.tarot).length
     "
