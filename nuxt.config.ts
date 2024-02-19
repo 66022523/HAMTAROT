@@ -32,7 +32,7 @@ export default defineNuxtConfig({
   },
   modules: ["@nuxtjs/google-fonts", "@nuxtjs/tailwindcss"],
   nitro: {
-    preset: "github-pages",
+    preset: "vercel",
   },
   googleFonts: {
     families: {
