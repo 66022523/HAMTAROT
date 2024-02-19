@@ -20,7 +20,7 @@ const categories = Object.keys(data.category);
             :key="stack"
             class="mb-8 transition hover:bg-electric-violet"
             i-assets
-            assets-class="text-blackcurrant text-2xl md:text-5xl p-1 md:p-3 inline-block leading-[0]"
+            assets-class="text-blackcurrant text-2xl md:text-5xl p-1 md:p-3 inline-block leading-[0] md:leading-[0]"
             :icon="data.category[categories[category - 1]].icon"
             :glass="stack === 1"
           />
