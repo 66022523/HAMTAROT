@@ -1,7 +1,7 @@
+import type { Config } from "tailwindcss";
 import hamColors from "./assets/json/colors.json";
 
-/** @type {import('tailwindcss').Config} */
-export default {
+export default <Partial<Config>>{
   theme: {
     extend: {
       colors: {
