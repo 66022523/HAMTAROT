@@ -19,7 +19,7 @@ const sendNotification = (event) => {
 </script>
 
 <template>
-  <section class="container mx-auto px-4">
+  <section class="container mx-auto p-4">
     <DashboardNavBar class="mb-8" :active-path="$route.path" />
     <div class="card rounded-xl bg-minsk shadow-xl">
       <div class="card-body">

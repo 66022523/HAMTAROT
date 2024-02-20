@@ -6,7 +6,7 @@
         src="/assets/icons/rating.png"
         alt="Star Icon"
         width="100px"
-        loading="lazy"
+        format="svg"
         placeholder
       />
       <h1 class="text-lg">

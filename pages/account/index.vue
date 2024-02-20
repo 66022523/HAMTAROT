@@ -1,5 +1,5 @@
 <template>
-  <section class="container mx-auto px-4">
+  <section class="container mx-auto p-4">
     <div class="card rounded-xl bg-minsk shadow-xl">
       <div class="card-body px-12 py-10">
         <h2 class="text-center text-portica">จัดการบัญชี</h2>
@@ -17,6 +17,8 @@
               <div class="w-24 rounded-full bg-blue-chalk p-2">
                 <NuxtImg
                   src="/assets/icons/person.png"
+                  alt=""
+                  format="webp"
                   loading="lazy"
                   placeholder
                 />

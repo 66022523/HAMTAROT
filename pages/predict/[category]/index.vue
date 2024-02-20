@@ -26,9 +26,13 @@ if (
       $route.params.category &&
       Object.keys(data.category).includes($route.params.category)
     "
-    class="container mx-auto px-4 text-center"
+    class="container mx-auto p-4 text-center"
   >
-    <h2 class="text-portica">คลิกเลือกไพ่ 1 ใบ แล้วคลิกปุ่ม 'ทำนาย'</h2>
+    <h2 class="text-portica">
+      คลิกเลือกไพ่ 1 ใบ
+      <br />
+      แล้วคลิกปุ่ม 'ทำนาย'
+    </h2>
     <h3 class="mb-8">
       หมวดหมู่ {{ data.category[$route.params.category].title }}
     </h3>
@@ -39,7 +43,7 @@ if (
         v-for="index in data.tarot.length"
         :key="index"
         :class="{ active: active === index }"
-        assets-class="p-1 md:p-2"
+        assets-class="p-px w-[40px] md:w-[80px] md:p-2"
         :glass="false"
         :style="{
           transform: active === index ? 'translateY(-40px)' : null,

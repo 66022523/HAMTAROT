@@ -6,7 +6,7 @@ defineProps({
   },
   assetsClass: {
     type: String,
-    default: "",
+    default: null,
   },
   glass: {
     type: Boolean,
@@ -26,7 +26,7 @@ defineProps({
   },
   height: {
     type: String,
-    default: "",
+    default: "80px",
   },
   flip: {
     type: Boolean,
@@ -38,11 +38,11 @@ defineProps({
   },
   image: {
     type: String,
-    default: "",
+    default: null,
   },
   title: {
     type: String,
-    default: "",
+    default: null,
   },
 });
 
@@ -62,7 +62,11 @@ const img = useImage();
             ? 'glass'
             : null
       "
-      :style="flip ? 'background-image: url(\'' + img(image) + '\');' : null"
+      :style="
+        flip && image
+          ? 'background-image: url(\'' + img(image, { format: 'webp' }) + '\');'
+          : null
+      "
     >
       <div
         v-if="flip"
@@ -81,7 +85,8 @@ const img = useImage();
           :alt="alt"
           :width="width"
           :height="height"
-          placeholder
+          :placeholder="[width, height]"
+          format="webp"
         />
         <i v-else :class="[assetsClass, icon]"></i>
       </div>

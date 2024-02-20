@@ -5,7 +5,7 @@ const categories = Object.keys(data.category);
 </script>
 
 <template>
-  <section class="container mx-auto px-4 text-center">
+  <section class="container mx-auto p-4 text-center">
     <h2 class="mb-8 text-portica">เลือกหมวดหมู่ที่ต้องการ</h2>
     <div class="flex flex-wrap items-center justify-center gap-8">
       <NuxtLink

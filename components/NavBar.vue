@@ -22,13 +22,15 @@ const goBack = (params) => {
         <NuxtImg
           src="/favicon.svg"
           alt="Hamtarot Favicon"
-          :modifiers="{ roundCorner: '100' }"
+          width="100px"
+          format="webp"
+          preload
         />
       </NuxtLink>
     </div>
     <div class="navbar-center">
       <NuxtLink
-        class="btn btn-ghost text-4xl"
+        class="btn btn-ghost text-3xl lg:text-4xl"
         style="font-family: &quot;Cherry Bomb One&quot;, system-ui"
         to="/"
       >

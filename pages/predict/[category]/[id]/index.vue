@@ -224,7 +224,7 @@ const saveAsImage = async (extensions = "png", quality = 1, share = false) => {
       </span>
     </div>
   </section>
-  <section v-else class="container mx-auto px-4 text-center">
+  <section v-else class="container mx-auto p-4 text-center">
     <i class="fi fi-rr-loading text-6xl text-portica"></i>
     <div
       v-if="
