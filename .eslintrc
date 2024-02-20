@@ -1,0 +1,10 @@
+{
+  "root": true,
+  "extends": ["@nuxt/eslint-config", "plugin:prettier/recommended"],
+  "rules": {
+    "prettier/prettier": [
+      "warn",
+      { "endOfLine": "auto" }
+    ]
+  }
+}
