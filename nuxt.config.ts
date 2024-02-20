@@ -40,7 +40,7 @@ export default defineNuxtConfig({
   experimental: {
     viewTransition: true,
   },
-  modules: ["@nuxt/image-edge", "@nuxtjs/google-fonts", "@nuxtjs/tailwindcss"],
+  modules: ["@nuxtjs/google-fonts", "@nuxtjs/tailwindcss"],
   nitro: {
     preset: "vercel",
   },
