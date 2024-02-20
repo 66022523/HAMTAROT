@@ -103,7 +103,7 @@ const saveAsImage = async (extensions = "png", quality = 1, share = false) => {
       parseInt($route.params.id) > 0 &&
       parseInt($route.params.id) <= Object.keys(data.tarot).length
     "
-    class="container mx-auto px-4"
+    class="container mx-auto p-4"
   >
     <RatingDialog />
     <div class="mb-8 text-center">

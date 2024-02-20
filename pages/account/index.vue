@@ -15,13 +15,7 @@
           <div class="flex-none">
             <div class="avatar">
               <div class="w-24 rounded-full bg-blue-chalk p-2">
-                <NuxtImg
-                  src="/assets/icons/person.png"
-                  alt=""
-                  format="webp"
-                  loading="lazy"
-                  placeholder
-                />
+                <img src="/assets/icons/person.webp" alt="" loading="lazy" />
               </div>
             </div>
           </div>

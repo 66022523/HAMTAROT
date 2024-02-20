@@ -145,13 +145,12 @@ defineProps({
           href="https://accounts.google.com/"
           target="_blank"
         >
-          <NuxtImg
+          <img
             class="rounded-full"
-            src="/assets/icons/google.png"
+            src="/assets/icons/google.webp"
             alt="เข้าสู่ระบบด้วย Google"
             width="40px"
-            format="svg"
-            preload
+            height="40px"
           />
         </NuxtLink>
         <NuxtLink
@@ -159,13 +158,12 @@ defineProps({
           href="https://www.facebook.com/login.php/"
           target="_blank"
         >
-          <NuxtImg
+          <img
             class="rounded-full"
-            src="/assets/icons/facebook.png"
+            src="/assets/icons/facebook.webp"
             alt="เข้าสู่ระบบด้วย Facebook"
             width="40px"
-            format="svg"
-            preload
+            height="40px"
           />
         </NuxtLink>
         <NuxtLink
@@ -173,13 +171,12 @@ defineProps({
           href="https://access.line.me/oauth2/v2.1/login?returnUri=%2Foauth2%2Fv2.1%2Fauthorize%2Fconsent&   loginChannelId=1521958360&loginState=CLn4LYQoulJIgLFHIw15nw#/"
           target="_blank"
         >
-          <NuxtImg
+          <img
             class="rounded-full"
-            src="/assets/icons/line.png"
+            src="/assets/icons/line.webp"
             alt="เข้าสู่ระบบด้วย Line"
             width="40px"
-            format="svg"
-            preload
+            height="40px"
           />
         </NuxtLink>
       </div>

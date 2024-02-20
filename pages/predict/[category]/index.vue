@@ -70,7 +70,7 @@ if (
       ทำนาย
     </NuxtLink>
   </section>
-  <section v-else class="container mx-auto px-4 text-center">
+  <section v-else class="container mx-auto p-4 text-center">
     <i class="fi fi-rr-loading text-6xl text-portica"></i>
     <h2 class="text-portica">ไม่พบหมวดหมู่ '{{ $route.params.category }}'</h2>
     <p class="mb-8">ดูเหมือนว่าคุณจะดวงไม่ดีมาเจอหน้าว่างเปล่านี้นะ</p>

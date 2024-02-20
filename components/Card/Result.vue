@@ -29,7 +29,7 @@ defineProps({
 
 <template>
   <div
-    class="card mb-8 overflow-hidden rounded-badge bg-blackcurrant shadow-xl before:absolute before:left-0 before:top-0 before:block before:size-full before:bg-[url('/favicon.svg')] before:bg-[length:100px_100px] before:bg-[50px_50px] before:bg-repeat before:opacity-5 before:content-['']"
+    class="card mb-8 overflow-hidden rounded-badge bg-blackcurrant shadow-xl before:absolute before:left-0 before:top-0 before:block before:size-full before:bg-[url('/favicon.ico')] before:bg-[length:100px_100px] before:bg-[50px_50px] before:bg-repeat before:opacity-5 before:content-['']"
   >
     <div class="card-body relative">
       <CardTarot

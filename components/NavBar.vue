@@ -19,12 +19,11 @@ const goBack = (params) => {
         <i class="fi fi-sr-angle-small-left text-2xl leading-[0]"></i>
       </button>
       <NuxtLink v-else class="btn btn-circle btn-ghost" to="/">
-        <NuxtImg
-          src="/favicon.svg"
+        <img
+          src="/favicon.ico"
           alt="Hamtarot Favicon"
           width="100px"
-          format="webp"
-          preload
+          height="100px"
         />
       </NuxtLink>
     </div>

@@ -66,12 +66,10 @@ const users = [
                 <div class="flex items-center gap-3">
                   <div class="avatar">
                     <div class="mask mask-squircle h-12 w-12">
-                      <NuxtImg
+                      <img
                         :src="user.image"
                         :alt="user.username"
-                        format="webp"
                         loading="lazy"
-                        placeholder
                       />
                     </div>
                   </div>

@@ -14,7 +14,7 @@ defineProps({
   },
   icon: {
     type: String,
-    default: "/favicon.svg",
+    default: "/favicon.ico",
   },
   alt: {
     type: String,
@@ -45,8 +45,6 @@ defineProps({
     default: null,
   },
 });
-
-const img = useImage();
 </script>
 
 <template>
@@ -63,9 +61,7 @@ const img = useImage();
             : null
       "
       :style="
-        flip && image
-          ? 'background-image: url(\'' + img(image, { format: 'webp' }) + '\');'
-          : null
+        flip && image ? 'background-image: url(\'' + image + '\');' : null
       "
     >
       <div
@@ -78,15 +74,13 @@ const img = useImage();
         v-if="!flip"
         class="m-auto flex items-center justify-center rounded-full border-8 border-blue-chalk bg-blue-chalk"
       >
-        <NuxtImg
+        <img
           v-if="!iAssets"
           :class="assetsClass"
           :src="icon"
           :alt="alt"
           :width="width"
           :height="height"
-          :placeholder="[width, height]"
-          format="webp"
         />
         <i v-else :class="[assetsClass, icon]"></i>
       </div>
