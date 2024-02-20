@@ -9,12 +9,13 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "lint:eslint": "eslint --ext \".ts,.vue\" --ignore-path .gitignore .",
-    "lint:prettier": "prettier --check .",
+    "lint:prettier": "prettier --check --ignore-path .gitignore .",
     "lint": "npm run lint:eslint && npm run lint:prettier",
-    "lint:fix": "prettier --write --list-different . && npm run lint:eslint --fix"
+    "lint:fix": "prettier --write --list-different --ignore-path .gitignore . && npm run lint:eslint --fix"
   },
   "devDependencies": {
     "@nuxt/eslint-config": "^0.2.0",
+    "@nuxt/image-edge": "^1.3.0-28468005.8ad772e",
     "@nuxtjs/google-fonts": "^3.1.3",
     "@nuxtjs/tailwindcss": "^6.11.4",
     "daisyui": "^4.6.1",
@@ -29,7 +30,6 @@
   },
   "dependencies": {
     "@flaticon/flaticon-uicons": "^3.1.0",
-    "@nuxt/image": "^1.3.0",
     "@vercel/analytics": "^1.2.1",
     "@vercel/speed-insights": "^1.0.10",
     "html-to-image": "^1.11.11"
