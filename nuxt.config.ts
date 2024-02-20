@@ -3,6 +3,9 @@ export default defineNuxtConfig({
   app: {
     buildAssetsDir: "/_hamtarot/",
     head: {
+      htmlAttrs: {
+        lang: "th",
+      },
       title: "Hamtarot",
       meta: [
         {
@@ -11,6 +14,20 @@ export default defineNuxtConfig({
         },
         {
           charset: "utf-8",
+        },
+        {
+          name: "description",
+          content:
+            "ดูดวงด้วยไพ่ยิปซีที่แม่นยำโดยมีแฮมทาโร่เป็นไกด์ เว็บไซต์ของเรานำเสนอวิธีที่สนุกและง่ายดายในการเรียนรู้เกี่ยวกับอนาคตและโชคชะตาของคุณในไม่กี่คลิก เพราะอนาคตคือเป้าหมายที่สำคัญ",
+        },
+        {
+          name: "keywords",
+          content:
+            "ดูดวง, แฮมทารอท, ทารอท, การ์ด, ทำนาย, ไพ่ทาโร่, Tarot, Card, Predict",
+        },
+        {
+          name: "author",
+          content: "",
         },
       ],
     },

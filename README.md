@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./public/favicon.ico" width="100px" alt="Hamtarot Favicon" />
+  <img src="./public/favicon.svg" width="100px" alt="Hamtarot Favicon" />
   <h1>HAMTAROT</h1>
   <a href="https://github.com/66022523/HAMTAROT/actions/workflows/test.yml">
     <img src="https://github.com/66022523/HAMTAROT/actions/workflows/test.yml/badge.svg" alt="Test Deploy badge" />

@@ -14,7 +14,7 @@ defineProps({
   },
   icon: {
     type: String,
-    default: "/favicon.ico",
+    default: "/favicon.svg",
   },
   alt: {
     type: String,
@@ -74,23 +74,13 @@ const img = useImage();
         v-if="!flip"
         class="m-auto flex items-center justify-center rounded-full border-8 border-blue-chalk bg-blue-chalk"
       >
-        <img
-          v-if="!iAssets && icon.split('.').pop() === 'ico'"
-          class="w-[40px] md:w-[80px]"
-          :class="assetsClass"
-          :src="icon"
-          :alt="alt"
-          :width="width"
-          :height="height"
-        />
         <NuxtImg
-          v-else-if="!iAssets && icon.split('.').pop() !== 'ico'"
+          v-if="!iAssets"
           :class="assetsClass"
           :src="icon"
           :alt="alt"
           :width="width"
           :height="height"
-          loading="lazy"
           placeholder
         />
         <i v-else :class="[assetsClass, icon]"></i>

@@ -19,17 +19,16 @@ const goBack = (params) => {
         <i class="fi fi-sr-angle-small-left text-2xl leading-[0]"></i>
       </button>
       <NuxtLink v-else class="btn btn-circle btn-ghost" to="/">
-        <img
-          src="/favicon.ico"
+        <NuxtImg
+          src="/favicon.svg"
           alt="Hamtarot Favicon"
-          width="80px"
-          height="80px"
+          :modifiers="{ roundCorner: '100' }"
         />
       </NuxtLink>
     </div>
     <div class="navbar-center">
       <NuxtLink
-        class="btn btn-ghost text-3xl"
+        class="btn btn-ghost text-4xl"
         style="font-family: &quot;Cherry Bomb One&quot;, system-ui"
         to="/"
       >
@@ -69,6 +68,7 @@ const goBack = (params) => {
           tabindex="0"
           role="button"
           class="avatar btn btn-circle btn-primary"
+          aria-label="ตัวเลือกของผู้ใช้"
         >
           <div class="w-10 rounded-full">
             <svg
