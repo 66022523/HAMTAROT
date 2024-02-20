@@ -36,12 +36,11 @@ export default defineNuxtConfig({
     rootId: "__hamtarot",
     rootTag: "body",
   },
-  css: ["~/assets/css/main.css"],
   devtools: { enabled: true },
   experimental: {
     viewTransition: true,
   },
-  modules: ["@nuxt/image", "@nuxtjs/google-fonts", "@nuxtjs/tailwindcss"],
+  modules: ["@nuxt/image-edge", "@nuxtjs/google-fonts", "@nuxtjs/tailwindcss"],
   nitro: {
     preset: "vercel",
   },
