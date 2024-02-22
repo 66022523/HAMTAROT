@@ -41,7 +41,7 @@ const sendNotification = (event) => {
             hint-top-left="เนื้อหาข้อความ"
             required
           />
-          <div class="flex items-end gap-2">
+          <div class="grid grid-flow-row items-end gap-2 md:grid-flow-col">
             <InputText
               v-model="filename"
               class="w-full"

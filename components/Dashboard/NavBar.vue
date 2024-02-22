@@ -1,4 +1,10 @@
 <script setup>
+const tabs = ref([
+  { title: "สถิติ", to: "/dashboard/statistics" },
+  { title: "การแจ้งเตือน", to: "/dashboard/notification" },
+  { title: "จัดการผู้ใช้งาน", to: "/dashboard/users" },
+]);
+
 defineProps({
   activePath: {
     type: String,
@@ -10,28 +16,14 @@ defineProps({
 <template>
   <div role="tablist" class="tabs-boxed tabs tabs-lg rounded-xl">
     <NuxtLink
+      v-for="index in tabs.length"
+      :key="index"
       role="tab"
-      class="tab"
-      :class="{ 'tab-active': activePath === '/dashboard/statistics' }"
-      to="/dashboard/statistics"
+      class="tab truncate text-wrap"
+      :class="{ 'tab-active': activePath === tabs[index - 1].to }"
+      :to="tabs[index - 1].to"
     >
-      สถิติ
-    </NuxtLink>
-    <NuxtLink
-      role="tab"
-      class="tab"
-      :class="{ 'tab-active': activePath === '/dashboard/notification' }"
-      to="/dashboard/notification"
-    >
-      การแจ้งเตือน
-    </NuxtLink>
-    <NuxtLink
-      role="tab"
-      class="tab"
-      :class="{ 'tab-active': activePath === '/dashboard/users' }"
-      to="/dashboard/users"
-    >
-      จัดการผู้ใช้งาน
+      {{ tabs[index - 1].title }}
     </NuxtLink>
   </div>
 </template>
