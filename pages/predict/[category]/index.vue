@@ -28,11 +28,11 @@ if (
     "
     class="container mx-auto p-4 text-center"
   >
-    <h2 class="text-portica">
+    <h1 class="text-portica">
       คลิกเลือกไพ่ 1 ใบ
       <br />
       แล้วคลิกปุ่ม 'ทำนาย'
-    </h2>
+    </h1>
     <h3 class="mb-8">
       หมวดหมู่ {{ data.category[$route.params.category].title }}
     </h3>
@@ -74,7 +74,7 @@ if (
   </section>
   <section v-else class="container mx-auto p-4 text-center">
     <i class="fi fi-rr-loading text-6xl text-portica"></i>
-    <h2 class="text-portica">ไม่พบหมวดหมู่ '{{ $route.params.category }}'</h2>
+    <h1 class="text-portica">ไม่พบหมวดหมู่ '{{ $route.params.category }}'</h1>
     <p class="mb-8">ดูเหมือนว่าคุณจะดวงไม่ดีมาเจอหน้าว่างเปล่านี้นะ</p>
     <NuxtLink class="btn btn-primary" to="/">กลับไปหน้าหลัก</NuxtLink>
   </section>

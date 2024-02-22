@@ -2,7 +2,7 @@
   <section class="container mx-auto p-4">
     <div class="card rounded-xl bg-minsk shadow-xl">
       <div class="card-body px-12 py-10">
-        <h2 class="text-center text-portica">จัดการบัญชี</h2>
+        <h1 class="text-center text-portica">จัดการบัญชี</h1>
         <p class="mb-8 text-center">
           เปลี่ยนแปลงหรือจัดการบัญชีของคุณ หากมีปัญหาใด ๆ
           สามารถติดต่อเราได้ที่ปุ่ม "?"

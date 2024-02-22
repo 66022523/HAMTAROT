@@ -44,7 +44,8 @@ const isViewed = (category) => {
 
 <template>
   <section class="container mx-auto p-4 text-center">
-    <h2 class="mb-8 text-portica">เลือกหมวดหมู่ที่ต้องการ</h2>
+    <h1 class="text-portica">เลือกหมวดหมู่ที่ต้องการ</h1>
+    <p class="mb-8">เลือกรายการที่คุณต้องการทำนาย</p>
     <div class="flex flex-wrap items-center justify-center gap-8">
       <NuxtLink
         v-for="category in categories.length"

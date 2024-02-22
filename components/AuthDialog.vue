@@ -41,9 +41,9 @@ defineProps({
     class="card h-screen w-full rounded-none border-blue-chalk bg-[#3b348650] shadow-xl backdrop-blur md:h-fit md:w-fit md:rounded-badge md:border-[15px] md:bg-minsk md:backdrop-blur-none"
   >
     <div class="card-body text-center">
-      <h2 class="mb-8 text-portica">
+      <h1 class="mb-8 text-portica">
         {{ title }}
-      </h2>
+      </h1>
       <form @submit.prevent="submit">
         <InputText
           v-model="username"

@@ -3,7 +3,7 @@
     <DashboardNavBar class="mb-8" :active-path="$route.path" />
     <div class="card rounded-xl bg-minsk shadow-xl">
       <div class="card-body">
-        <h2 class="text-center text-portica">สถิติ</h2>
+        <h1 class="text-center text-portica">สถิติ</h1>
         <p class="mb-4 text-center">ข้อมูลสถิติเกี่ยวกับเว็บไซต์ทั้งหมด</p>
         <div class="stats shadow">
           <div class="stat">

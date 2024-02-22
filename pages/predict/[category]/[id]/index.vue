@@ -113,7 +113,7 @@ const saveAsImage = async (extensions = "png", quality = 1, share = false) => {
   >
     <RatingDialog />
     <div class="mb-8 text-center">
-      <h2 class="text-portica">ผลการทำนาย</h2>
+      <h1 class="text-portica">ผลการทำนาย</h1>
       <p>หมวดหมู่ {{ data.category[$route.params.category].title }}</p>
     </div>
     <CardResult
@@ -239,11 +239,11 @@ const saveAsImage = async (extensions = "png", quality = 1, share = false) => {
         !Object.keys(data.category).includes($route.params.category)
       "
     >
-      <h2 class="text-portica">ไม่พบหมวดหมู่ '{{ $route.params.category }}'</h2>
+      <h1 class="text-portica">ไม่พบหมวดหมู่ '{{ $route.params.category }}'</h1>
       <p class="mb-8">ดูเหมือนว่าคุณจะดวงไม่ดีมาเจอหน้าว่างเปล่านี้นะ</p>
     </div>
     <div v-else>
-      <h2 class="text-portica">ไม่พบการ์ดดังกล่าว</h2>
+      <h1 class="text-portica">ไม่พบการ์ดดังกล่าว</h1>
       <p class="mb-8">
         คุณอาจจะดวงไม่ดีมาเจอการ์ด
         <br />

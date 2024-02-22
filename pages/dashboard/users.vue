@@ -38,7 +38,7 @@ const users = [
     <DashboardNavBar class="mb-8" :active-path="$route.path" />
     <div class="card rounded-xl bg-minsk shadow-xl">
       <div class="card-body">
-        <h2 class="text-center text-portica">จัดการผู้ใช้งาน</h2>
+        <h1 class="text-center text-portica">จัดการผู้ใช้งาน</h1>
         <p class="mb-8 text-center">จัดการผู้ใช้งานที่มีบัญชีจากที่นี่</p>
         <table class="table">
           <!-- head -->

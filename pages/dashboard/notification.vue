@@ -23,7 +23,7 @@ const sendNotification = (event) => {
     <DashboardNavBar class="mb-8" :active-path="$route.path" />
     <div class="card rounded-xl bg-minsk shadow-xl">
       <div class="card-body">
-        <h2 class="text-center text-portica">การแจ้งเตือน</h2>
+        <h1 class="text-center text-portica">การแจ้งเตือน</h1>
         <p class="mb-4 text-center">
           ส่งการแจ้งเตือนไปยังเบราว์เซอร์ของแต่ละเครื่อง
         </p>
