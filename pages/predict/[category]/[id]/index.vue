@@ -2,6 +2,14 @@
 import { toPng, toJpeg, toSvg } from "html-to-image";
 import data from "~/assets/json/data.json";
 
+const route = useRoute();
+const params = route.params;
+
+const viewed = useCookie("viewed", {
+  default: () => ({}),
+  expires: getNextDays(),
+});
+
 const selected = ref("png");
 const options = ref([
   { text: "PNG", value: "png" },
@@ -10,9 +18,6 @@ const options = ref([
 ]);
 const ranged = ref("100");
 const isLoading = ref(false);
-
-const route = useRoute();
-const params = route.params;
 
 if (
   params &&
@@ -23,6 +28,7 @@ if (
   parseInt(params.id) > 0 &&
   parseInt(params.id) <= Object.keys(data.tarot).length
 ) {
+  viewed.value[params.category] = { viewed: true, accept: false };
   useSeoMeta({
     title: `Hamtarot - ${data.tarot[parseInt(params.id) - 1].alias}`,
   });
