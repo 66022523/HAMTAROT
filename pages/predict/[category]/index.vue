@@ -61,9 +61,11 @@ if (
     <NuxtLink
       class="btn btn-primary"
       :disabled="active ? null : 'disabled'"
-      :to="
+      @click="
         active
-          ? `/predict/${$route.params.category}/${Math.floor(Math.random() * active) + 1}`
+          ? navigateTo(
+              `/predict/${$route.params.category}/${Math.floor(Math.random() * active) + 1}`,
+            )
           : null
       "
     >
