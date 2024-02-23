@@ -43,30 +43,80 @@ const isViewed = (category) => {
 </script>
 
 <template>
-  <section class="container mx-auto p-4 text-center">
-    <h1 class="text-portica">เลือกหมวดหมู่ที่ต้องการ</h1>
-    <p class="mb-8">เลือกรายการที่คุณต้องการทำนาย</p>
-    <div class="flex flex-wrap items-center justify-center gap-8">
-      <NuxtLink
-        v-for="category in categories.length"
-        :key="category"
-        class="flex basis-1/4 cursor-pointer flex-col items-center justify-center transition hover:scale-105 hover:underline"
-        @click="isViewed(categories[category - 1])"
-      >
-        <div class="stack">
-          <CardTarot
-            v-for="stack in 3"
-            :key="stack"
-            class="mb-8 transition hover:bg-electric-violet"
-            i-assets
-            assets-class="text-blackcurrant text-2xl md:text-5xl p-1 md:p-3 inline-block leading-[0] md:leading-[0]"
-            :icon="data.category[categories[category - 1]].icon"
-            :glass="stack === 1"
-          />
+  <section>
+    <section class="container mx-auto mb-8 p-4 text-center">
+      <h1 class="text-portica">เลือกหมวดหมู่ที่ต้องการ</h1>
+      <p class="mb-8">เลือกรายการที่คุณต้องการทำนาย</p>
+      <div class="mb-8 flex flex-wrap items-center justify-center gap-8">
+        <NuxtLink
+          v-for="category in categories.length"
+          :key="category"
+          class="flex basis-1/4 cursor-pointer flex-col items-center justify-center transition hover:link-hover hover:link hover:scale-105"
+          @click="isViewed(categories[category - 1])"
+        >
+          <div class="stack">
+            <CardTarot
+              v-for="stack in 3"
+              :key="stack"
+              class="mb-8 transition hover:bg-electric-violet"
+              i-assets
+              assets-class="text-blackcurrant text-2xl md:text-5xl p-1 md:p-3 inline-block leading-[0] md:leading-[0]"
+              :icon="data.category[categories[category - 1]].icon"
+              :glass="stack === 1"
+            />
+          </div>
+          <h3>{{ data.category[categories[category - 1]].title }}</h3>
+        </NuxtLink>
+      </div>
+    </section>
+    <section class="container mx-auto mb-8 p-4">
+      <div class="grid grid-cols-2 gap-8">
+        <div class="hero rounded-badge bg-base-200 p-5">
+          <div class="hero-content flex-col lg:flex-row">
+            <div class="select-none p-5 text-9xl">🔮</div>
+            <div>
+              <h2 class="text-5xl font-bold text-portica">
+                ยินดีต้อนรับสู่ Hamtarot!
+              </h2>
+              <p class="pt-6">
+                ที่นี่คือที่ที่คุณสามารถสำรวจและเข้าใจตัวเองและชีวิตของคุณได้ดียิ่งขึ้นผ่านการดูดวงด้วยไพ่ทาโร่.
+                ไพ่ทาโร่เป็นเครื่องมือที่ช่วยให้เราสำรวจและเข้าใจตัวเองและสิ่งที่เกิดขึ้นในชีวิตของเรา.
+              </p>
+            </div>
+          </div>
         </div>
-        <h3>{{ data.category[categories[category - 1]].title }}</h3>
-      </NuxtLink>
-    </div>
+        <div class="hero rounded-badge bg-base-200 p-5">
+          <div class="hero-content flex-col lg:flex-row">
+            <div class="select-none p-5 text-9xl">🌟</div>
+            <div>
+              <h3 class="text-5xl font-bold text-portica">
+                ทำไมต้อง Hamtarot?
+              </h3>
+              <ul class="list-disc pt-6">
+                <li>คุณสามารถดูดวงได้ง่าย ๆ ผ่านเว็บไซต์ Hamtarot</li>
+                <li>
+                  ทำให้การดูดวงไม่ยุ่งยากอีกต่อไปด้วยการออกแบบที่เรียบง่าย
+                </li>
+                <li>ไม่ต้องเสียค่าใช้จ่ายใด ๆ ในการดูดวงฟรี</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="container mx-auto p-4">
+      <span>
+        ข้อมูลภายในการ์ดได้รับการอ้างอิงจาก
+        <br />
+        <NuxtLink
+          class="link"
+          href="https://www.shitsuren-tarot.com/tarot/major-arcana/"
+          target="_blank"
+        >
+          Shitsuren Tarot <i class="fi fi-br-arrow-up-right-from-square"></i>
+        </NuxtLink>
+      </span>
+    </section>
     <ToastFeedback class="toast-center z-50">
       <AlertFeedback
         v-for="index in alert.length"
