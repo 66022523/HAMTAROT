@@ -70,7 +70,7 @@ const isViewed = (category) => {
       </div>
     </section>
     <section class="container mx-auto mb-8 p-4">
-      <div class="grid grid-cols-2 gap-8">
+      <div class="grid grid-rows-2 gap-8 md:grid-cols-2">
         <div class="hero rounded-badge bg-base-200 p-5">
           <div class="hero-content flex-col lg:flex-row">
             <div class="select-none p-5 text-9xl">🔮</div>
