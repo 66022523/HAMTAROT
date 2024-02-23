@@ -115,29 +115,29 @@ defineProps({
       <h3 class="font-bold">{{ title }}</h3>
       <div class="text-xs">{{ text }}</div>
     </div>
-    <button
+    <Button
       v-if="primaryButtonText && !secondaryButtonText"
-      class="btn btn-sm"
+      class="btn-sm"
       :class="primaryButtonClass"
       @click="primaryButtonOnClick"
     >
       {{ primaryButtonText }}
-    </button>
+    </Button>
     <div v-if="primaryButtonText && secondaryButtonText">
-      <button
-        class="btn btn-sm"
+      <Button
+        class="btn-sm"
         :class="primaryButtonClass"
         @click="primaryButtonOnClick"
       >
         {{ primaryButtonText }}
-      </button>
-      <button
-        class="btn btn-sm"
+      </Button>
+      <Button
+        class="btn-sm"
         :class="secondaryButtonClass"
         @click="secondaryButtonOnClick"
       >
         {{ secondaryButtonText }}
-      </button>
+      </Button>
     </div>
   </div>
 </template>

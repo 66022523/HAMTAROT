@@ -58,8 +58,8 @@ if (
       อธิษฐานระลึกถึงสิ่งศักดิ์สิทธิ์ทั้งหลายหรือที่เคารพบูชา
       ขอบารมีท่านเปิดดวงชะตา บอกเล่าคำทำนายผ่านไพ่ยิปนี้
     </p>
-    <NuxtLink
-      class="btn btn-primary"
+    <Button
+      class="btn-primary"
       :disabled="active ? null : 'disabled'"
       @click="
         active
@@ -70,7 +70,7 @@ if (
       "
     >
       ทำนาย
-    </NuxtLink>
+    </Button>
   </section>
   <section v-else class="container mx-auto p-4 text-center">
     <i class="fi fi-rr-loading text-6xl text-portica"></i>

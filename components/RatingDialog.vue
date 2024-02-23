@@ -45,7 +45,7 @@
       </div>
       <div class="modal-action flex justify-center">
         <form method="dialog">
-          <button class="btn btn-primary">ให้คะแนน</button>
+          <Button class="btn-primary">ให้คะแนน</Button>
         </form>
       </div>
     </div>

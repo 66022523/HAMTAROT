@@ -11,13 +11,13 @@ const goBack = (params) => {
 <template>
   <nav class="navbar bg-[#3B348620] p-4 shadow-xl backdrop-blur lg:rounded-xl">
     <div class="navbar-start gap-2">
-      <button
+      <Button
         v-if="$route.path !== '/'"
-        class="btn btn-circle btn-ghost"
+        class="btn-circle btn-ghost"
         @click="goBack($route.params)"
       >
         <i class="fi fi-sr-angle-small-left text-2xl leading-[0]"></i>
-      </button>
+      </Button>
       <NuxtLink v-else class="btn btn-circle btn-ghost" to="/">
         <img
           src="/favicon.ico"

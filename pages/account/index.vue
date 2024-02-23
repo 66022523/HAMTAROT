@@ -43,8 +43,8 @@
           </div>
         </div>
         <div class="grid grid-cols-2 gap-2">
-          <Button class="btn btn-warning">เปลี่ยน</Button>
-          <Button class="btn btn-outline btn-warning">ลบบัญชี</Button>
+          <Button class="btn-warning">เปลี่ยน</Button>
+          <Button class="btn-outline btn-warning">ลบบัญชี</Button>
         </div>
       </div>
     </div>
