@@ -1,10 +1,25 @@
 <script setup>
 const router = useRouter();
 
+const user = ref();
+
+if (process.client) {
+  if (sessionStorage.getItem("user")) {
+    const userSession = sessionStorage.getItem("user");
+    const userData = JSON.parse(userSession);
+
+    user.value = userData;
+  }
+}
+
 const goBack = (params) => {
   if (params.category && params.id) return router.replace({ path: "/" });
 
   router.back();
+};
+const logout = () => {
+  sessionStorage.removeItem("user");
+  reloadNuxtApp();
 };
 </script>
 
@@ -37,33 +52,6 @@ const goBack = (params) => {
       </NuxtLink>
     </div>
     <div class="navbar-end">
-      <!-- ? If the user has already logged in -->
-      <!-- <div class="dropdown dropdown-end">
-          <div
-            tabindex="0"
-            role="button"
-            class="btn btn-ghost btn-circle avatar"
-          >
-            <div class="w-10 rounded-full">
-              <img
-                alt="Profile"
-                src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-              />
-            </div>
-          </div>
-          <ul
-            tabindex="0"
-            class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
-          >
-            <li class="menu-title">จัดการบัญชี</li>
-            <li>
-              <NuxtLink to="/account">แก้ไขโปรไฟล์</NuxtLink>
-            </li>
-            <li><a>ลงชื่อออก</a></li>
-          </ul>
-        </div> -->
-
-      <!-- ? If the user has not logged in yet -->
       <div class="dropdown dropdown-end">
         <div
           tabindex="0"
@@ -72,7 +60,13 @@ const goBack = (params) => {
           aria-label="ตัวเลือกของผู้ใช้"
         >
           <div class="w-10 rounded-full">
+            <img
+              v-if="user"
+              alt="Profile"
+              src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+            />
             <svg
+              v-else
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
@@ -93,14 +87,22 @@ const goBack = (params) => {
           class="menu dropdown-content menu-sm z-[1] mt-3 w-52 rounded-box bg-base-100 p-2 shadow"
         >
           <li class="menu-title">จัดการบัญชี</li>
-          <li>
+          <li v-if="!user">
             <NuxtLink to="/account/login">ลงชื่อเข้าใช้</NuxtLink>
           </li>
-          <li>
+          <li v-if="!user">
             <NuxtLink to="/account/register">สมัครบัญชีใหม่</NuxtLink>
           </li>
-          <li>
+          <li v-if="!user">
             <NuxtLink to="/account/forget">ลืมรหัสผ่าน</NuxtLink>
+          </li>
+          <li v-if="user">
+            <NuxtLink to="/account">แก้ไขโปรไฟล์</NuxtLink>
+          </li>
+          <li v-if="user">
+            <button class="mt-2 justify-center bg-error" @click="logout">
+              ลงชื่อออก
+            </button>
           </li>
         </ul>
       </div>

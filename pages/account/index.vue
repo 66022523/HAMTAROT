@@ -1,5 +1,20 @@
+<script setup>
+const username = ref("");
+const email = ref("");
+
+if (process.client) {
+  if (!sessionStorage.getItem("user")) navigateTo("/account/login");
+
+  const userSession = sessionStorage.getItem("user");
+  const userData = JSON.parse(userSession);
+
+  username.value = userData.username;
+  email.value = userData.email;
+}
+</script>
+
 <template>
-  <section class="container mx-auto p-4">
+  <section class="container mx-auto p-4 pt-8 md:pt-0">
     <div class="card rounded-xl bg-minsk shadow-xl">
       <div class="card-body px-12 py-10">
         <h1 class="text-center text-portica">จัดการบัญชี</h1>
@@ -14,18 +29,24 @@
         >
           <div class="flex-none">
             <div class="avatar">
-              <div class="w-24 rounded-full bg-blue-chalk p-2">
-                <img src="/assets/icons/person.webp" alt="" loading="lazy" />
+              <div class="w-24 rounded-full bg-blue-chalk">
+                <img
+                  src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                  :alt="username + ' Photo'"
+                  loading="lazy"
+                />
               </div>
             </div>
           </div>
           <div class="flex-1">
             <InputText
+              v-model="username"
               placeholder="ชื่อเล่นหรือนามแฝง"
               hint-top-left="ชื่อเล่น"
             />
             <div class="flex justify-stretch gap-2">
               <InputText
+                v-model="email"
                 class="w-full"
                 type="email"
                 placeholder="example@domain.subdomain"
@@ -50,20 +71,3 @@
     </div>
   </section>
 </template>
-
-<script>
-export default {
-  data() {
-    return {
-      user: "",
-    };
-  },
-
-  methods: {
-    login() {
-      // เพิ่มโค้ดการตรวจสอบและดำเนินการเข้าสู่ระบบตรงนี้
-      console.log("Logging in with:", this.username, this.password);
-    },
-  },
-};
-</script>
