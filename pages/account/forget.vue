@@ -6,33 +6,53 @@ definePageMeta({
   },
   middleware(to, from) {
     if (to.meta.pageTransition && typeof to.meta.pageTransition !== "boolean")
-      to.meta.pageTransition.name =
-        from.path === "/account/login" ? "slide-right" : "slide-left";
+      to.meta.pageTransition.name = from.path.includes("login")
+        ? "slide-right"
+        : "slide-left";
   },
 });
 
-const username = ref("");
+const email = ref("");
+const loading = ref(false);
+
+if (process.client) {
+  if (sessionStorage.length) {
+    if (sessionStorage.getItem("user")) navigateTo("/");
+  }
+}
 
 const submit = async (event) => {
-  const username = event.target[0].value;
+  loading.value = true;
 
-  console.log("Sended reset password email to:", username);
+  const email = event.target[0].value;
 
-  await navigateTo("/account");
+  setTimeout(() => {
+    alert(
+      `ส่งอีเมลรีเซ็ตรหัสผ่านไปยัง ${email} เรียบร้อยแล้ว กรุณาตรวจสอบอีเมลหรืออีเมลขยะของคุณ`,
+    );
+    loading.value = false;
+  }, 5000);
 };
 </script>
 
 <template>
   <section class="container mx-auto flex items-center justify-center md:p-4">
     <AuthDialog
-      v-model:username="username"
+      v-model:email="email"
       :submit="submit"
       title="ลืมรหัสผ่าน"
-      prev-to="/account/register"
+      :prev-to="
+        $route.query.callback
+          ? `/account/register?callback=${$route.query.callback}`
+          : '/account/register'
+      "
       prev-text="สร้างบัญชี"
-      next-to="/account/login"
+      :next-to="
+        $route.query.callback
+          ? `/account/login?callback=${$route.query.callback}`
+          : '/account/login'
+      "
       next-text="เข้าสู่ระบบ"
-      :button-disabled="!username"
     >
       ส่งอีเมลยืนยัน
     </AuthDialog>

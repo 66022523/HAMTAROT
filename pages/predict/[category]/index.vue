@@ -17,6 +17,21 @@ if (
     title: "Hamtarot - ไม่พบหมวดหมู่นี้",
   });
 }
+
+const predict = async (index) => {
+  if (index) {
+    const callback = `/predict/${route.params.category}/${Math.floor(Math.random() * index) + 1}`;
+
+    if (!sessionStorage.getItem("user"))
+      return await navigateTo({
+        path: "/account/login",
+        query: {
+          callback: btoa(callback),
+        },
+      });
+    navigateTo(callback);
+  }
+};
 </script>
 
 <template>
@@ -26,7 +41,7 @@ if (
       $route.params.category &&
       Object.keys(data.category).includes($route.params.category)
     "
-    class="container mx-auto p-4 text-center"
+    class="container mx-auto p-4 pt-8 text-center md:pt-0"
   >
     <h1 class="text-portica">
       คลิกเลือกไพ่ 1 ใบ
@@ -37,7 +52,7 @@ if (
       หมวดหมู่ {{ data.category[$route.params.category].title }}
     </h3>
     <div
-      class="my-12 grid grid-cols-[repeat(auto-fill,3%)] md:ml-[2%] lg:ml-[10%]"
+      class="my-12 ml-[2%] grid grid-cols-[repeat(auto-fill,3%)] lg:ml-[10%]"
     >
       <CardTarot
         v-for="index in data.tarot.length"
@@ -61,13 +76,7 @@ if (
     <Button
       class="btn-primary"
       :disabled="active ? null : 'disabled'"
-      @click="
-        active
-          ? navigateTo(
-              `/predict/${$route.params.category}/${Math.floor(Math.random() * active) + 1}`,
-            )
-          : null
-      "
+      @click="predict(active)"
     >
       ทำนาย
     </Button>

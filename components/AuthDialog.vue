@@ -1,5 +1,9 @@
 <script setup>
-const username = defineModel("username", { required: true, type: String });
+const emailUsername = defineModel("emailUsername", {
+  type: String,
+});
+const username = defineModel("username", { type: String });
+const email = defineModel("email", { type: String });
 const password = defineModel("password", { type: String });
 const newPassword = defineModel("newPassword", { type: String });
 const verifyPassword = defineModel("verifyPassword", { type: String });
@@ -46,9 +50,48 @@ defineProps({
       </h1>
       <form @submit.prevent="submit">
         <InputText
-          v-model="username"
+          v-if="emailUsername !== undefined"
+          v-model="emailUsername"
           class="mb-2"
           placeholder="อีเมล/ชื่อผู้ใช้"
+          :required="true"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 16 16"
+            fill="currentColor"
+            class="h-4 w-4 opacity-70"
+          >
+            <path
+              d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM12.735 14c.618 0 1.093-.561.872-1.139a6.002 6.002 0 0 0-11.215 0c-.22.578.254 1.139.872 1.139h9.47Z"
+            />
+          </svg>
+        </InputText>
+        <InputText
+          v-if="username !== undefined"
+          v-model="username"
+          class="mb-2"
+          placeholder="ชื่อผู้ใช้"
+          :required="true"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 16 16"
+            fill="currentColor"
+            class="h-4 w-4 opacity-70"
+          >
+            <path
+              d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM12.735 14c.618 0 1.093-.561.872-1.139a6.002 6.002 0 0 0-11.215 0c-.22.578.254 1.139.872 1.139h9.47Z"
+            />
+          </svg>
+        </InputText>
+        <InputText
+          v-if="email !== undefined"
+          v-model="email"
+          class="mb-2"
+          type="email"
+          placeholder="อีเมล"
+          :required="true"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -70,6 +113,7 @@ defineProps({
           class="mb-2"
           type="password"
           placeholder="รหัสผ่าน"
+          :required="true"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -92,6 +136,8 @@ defineProps({
           placeholder="รหัสผ่าน"
           min-length="8"
           hint-bottom-left="อย่างน้อย 8 ตัวอักษร พิมพ์เล็ก พิมพ์ใหญ่และตัวอักษรพิเศษ"
+          :pattern="passwordPattern"
+          :required="true"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -112,6 +158,7 @@ defineProps({
           class="mb-2"
           type="password"
           placeholder="ยืนยันรหัสผ่าน"
+          :required="true"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
