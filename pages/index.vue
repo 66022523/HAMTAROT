@@ -12,6 +12,21 @@ const viewedLink = ref("");
 
 const categories = Object.keys(data.category);
 
+if (process.client) {
+  const notify = (  "HAMTAROT", { body: "ตัวอย่างการแจ้งเตือนจากเว็บไซต์ HAMTAROT", icon: "/favicon.ico" })
+  if (!("Notification" in window)) {
+    alert("เบราว์เซอร์ของคุณไม่รองรับระบบการแจ้งเตือน");
+  } else if (Notification.permission === "granted") {
+    new Notification(notify);
+  } else if (Notification.permission !== "denied") {
+    Notification.requestPermission().then((permission) => {
+      if (permission === "granted") {
+        new Notification(notify);
+      }
+    });
+  }
+}
+
 const isViewed = (category) => {
   if (
     Object.keys(viewed.value).includes(category) &&
