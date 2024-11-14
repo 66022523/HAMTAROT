@@ -22,13 +22,6 @@ const predict = async (index) => {
   if (index) {
     const callback = `/predict/${route.params.category}/${Math.floor(Math.random() * index) + 1}`;
 
-    if (!sessionStorage.getItem("user"))
-      return await navigateTo({
-        path: "/account/login",
-        query: {
-          callback: btoa(callback),
-        },
-      });
     navigateTo(callback);
   }
 };
